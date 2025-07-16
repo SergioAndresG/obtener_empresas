@@ -2,6 +2,7 @@ import os
 import time
 import logging
 from datetime import datetime
+from httpcore import TimeoutException
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -17,8 +18,6 @@ import traceback
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill, Font, Alignment
 from openpyxl.utils.dataframe import dataframe_to_rows
-import xlrd
-import xlwt
 from xlutils.copy import copy
 
 
@@ -129,6 +128,10 @@ class ExtractorDatosEmpresa:
             self.driver.get(URL_LOGIN)
             logging.info("Abriendo página de login...")
             
+
+            self.wait.until(EC.invisibility_of_element_located((By.ID, "content-load")))
+
+
             # Esperar a que el radio button esté disponible
             radio_persona = self.wait.until(EC.element_to_be_clickable(
                 (By.XPATH, "//input[@type='radio' and @name='tipousuario' and @value='0']")
@@ -229,13 +232,6 @@ class ExtractorDatosEmpresa:
                         fila_datos["Estado"] = estado
                     except:
                         fila_datos["Estado"] = "N/A"
-
-                    # Acción
-                    try:
-                        accion = fila.find_element(By.CSS_SELECTOR, "td:nth-child(7)").text.strip()
-                        fila_datos["Acción"] = accion
-                    except:
-                        fila_datos["Acción"] = "N/A"
                     
                     datos_pagina.append(fila_datos)
                     
@@ -456,62 +452,77 @@ class ExtractorDatosEmpresa:
     
     def ejecutar_proceso_completo(self, municipios):
         """
-        Ejecuta todo el proceso de extracción
+        Ejecuta todo el proceso de extracción para múltiples municipios,
+        creando un archivo Excel separado para cada uno.
         """
         try:
             print("🚀 Iniciando proceso de extracción de datos...")
             
-            # Configurar driver
             if not self.configurar_driver():
                 return False
             
-            # Realizar login
             if not self.realizar_login():
                 return False
             
-            time.sleep(5)
+            time.sleep(3) # Give time for the dashboard to load fully after login
             
-            # Realizar navegacion
+            # Initial navigation to the companies page
             if not self.navegar_a_empresas():
                 return False
             
+
             for municipio in municipios:
-                print(f"Municipio a procesar {municipio}")
-                if not self.hacer_consulta_avanzada(municipio):
-                    logging.warning(f"No se pudo realizar la consulta para el municipio --> {municipio}")
-                    continue
+                print(f"\n--- Procesando datos para el municipio: {municipio} ---")
                 
-                try:
-                    self.wait.until(EC.presence_of_element_located((By.ID, "bus-table")))
-                    print("📄 Tabla encontrada, extrayendo datos...")
-                    
-                    # Aquí agregas la extracción de todas las filas
-                    self.extraer_datos_tabla_especifica()
-                except Exception as e:
-                    print("Error al buscar el municipio ", e)
-            try:    
-                # Esperar a que aparezca algún elemento característico de esa página
-                self.wait.until(
-                    EC.presence_of_element_located((By.ID, "bus-table"))  # O el elemento que confirme que estás en la página correcta
-                )
-                logging.info("Navegación a página de empresas exitosa")
-            except:
-                logging.warning("No se pudo confirmar la navegación a la página de empresas")
-            
-            # Crear archivo Excel
-            if not self.crear_archivo_excel():
-                return False
-            
+                # IMPORTANT: Re-navigate to the 'Empresa' module for EACH municipality
+                # This ensures a clean state and reliable access to the advanced search button.
+                logging.info(f"Re-navegando al módulo de empresas para el municipio: {municipio}")
+                if not self.navegar_a_empresas():
+                    logging.error(f"Fallo al re-navegar al módulo de empresas para {municipio}. Saltando.")
+                    continue # Skip to the next municipality if re-navigation fails
+
+                # Limpiar los datos extraídos para el nuevo municipio
+                self.datos_extraidos = [] 
+
+                if self.hacer_consulta_avanzada(municipio):
+                    try:
+                        # Después de aplicar el filtro, esperar a que la tabla se actualice
+                        # This waits for at least one data row, or confirms no data is found after filter
+                        self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, TABLA_SELECTOR + " " + FILAS_DATOS_SELECTOR)))
+                        print(f"📄 Tabla actualizada para '{municipio}', extrayendo datos...")
+                        
+                        # Ahora, navegar a través de todas las páginas para los resultados de este municipio específico
+                        self.navegar_paginas()
+                        
+                        # Crear el archivo Excel para el municipio actual
+                        if self.datos_extraidos:
+                            timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+                            nombre_archivo_municipio = f"datos_empresas_{municipio}_{timestamp}.xlsx"
+                            if not self.crear_archivo_excel(nombre_archivo_municipio):
+                                logging.warning(f"No se pudo crear el archivo Excel para el municipio {municipio}.")
+                        else:
+                            print(f"No se extrajeron datos para el municipio: {municipio}")
+                            logging.info(f"No se extrajeron datos para el municipio: {municipio}")
+                        
+                    except TimeoutException:
+                        print(f"No se encontraron datos en la tabla para el municipio '{municipio}' después de la búsqueda.")
+                        logging.info(f"No se encontraron datos en la tabla para el municipio '{municipio}' después de la búsqueda.")
+                    except Exception as e:
+                        print(f"Error al procesar la tabla para el municipio '{municipio}': {e}")
+                        logging.warning(f"Error al procesar la tabla para el municipio '{municipio}': {e}")
+                else:
+                    print(f"Saltando el municipio {municipio} debido a que la búsqueda avanzada falló.")
+
             print("✅ Proceso completado exitosamente!")
             return True
             
         except Exception as e:
             logging.error(f"Error en proceso completo: {str(e)}")
             print(f"❌ Error en el proceso: {str(e)}")
+            traceback.print_exc()
             return False
-        
+            
         finally:
-            # Cerrar driver
             if self.driver:
                 self.driver.quit()
                 logging.info("Driver cerrado")
@@ -524,23 +535,23 @@ def main():
         municipios = [
             "Mosquera",
             "Madrid",
-            "Bojaca",
-            "Zipacon",
+            "Bojacá",   
+            "Zipacón",  
             "Facatativá",
             "El Rosal",
-            "Subachoqe",
+            "Subachoque", 
             "Tabio",
             "Cota",
             "Funza",
             "Tenjo",
             "Guasca",
-            "Gacheta",
+            "Gachetá",  
             "Gama",
-            "Ubala",
-            "Gachala",
-            "Junin"
+            "Ubalá",    
+            "Gachalá",  
+            "Junín"     
         ]
-        
+        print("🚀 Iniciando el proceso de extracción de datos de empresas...")    
         
         extractor = ExtractorDatosEmpresa()
         extractor.ejecutar_proceso_completo(municipios)

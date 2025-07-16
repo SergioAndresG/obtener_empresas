@@ -1,0 +1,390 @@
+2025-07-15 22:16:22,171 - INFO - ====== WebDriver manager ======
+2025-07-15 22:16:23,107 - INFO - Get LATEST chromedriver version for google-chrome
+2025-07-15 22:16:23,241 - INFO - Get LATEST chromedriver version for google-chrome
+2025-07-15 22:16:23,407 - INFO - Driver [C:\Users\sergi\.wdm\drivers\chromedriver\win64\138.0.7204.157\chromedriver-win32/chromedriver.exe] found in cache
+2025-07-15 22:16:24,550 - INFO - Driver configurado exitosamente
+2025-07-15 22:16:25,693 - INFO - Abriendo página de login...
+2025-07-15 22:16:28,525 - INFO - Login exitoso
+2025-07-15 22:16:36,010 - INFO - Re-navegando al módulo de empresas para el municipio: Mosquera
+2025-07-15 22:16:47,982 - INFO - Procesando página 1
+2025-07-15 22:16:51,537 - INFO - Procesando página 2
+2025-07-15 22:16:55,046 - INFO - Procesando página 3
+2025-07-15 22:16:58,588 - INFO - Procesando página 4
+2025-07-15 22:17:02,105 - INFO - Procesando página 5
+2025-07-15 22:17:05,765 - INFO - Procesando página 6
+2025-07-15 22:17:09,384 - INFO - Procesando página 7
+2025-07-15 22:17:13,198 - INFO - Procesando página 8
+2025-07-15 22:17:17,233 - INFO - Procesando página 9
+2025-07-15 22:17:20,999 - INFO - Procesando página 10
+2025-07-15 22:17:24,644 - INFO - Procesando página 11
+2025-07-15 22:17:28,320 - INFO - Procesando página 12
+2025-07-15 22:17:32,261 - INFO - Procesando página 13
+2025-07-15 22:17:36,133 - INFO - Procesando página 14
+2025-07-15 22:17:39,863 - INFO - Procesando página 15
+2025-07-15 22:17:43,662 - INFO - Procesando página 16
+2025-07-15 22:17:47,597 - INFO - Procesando página 17
+2025-07-15 22:17:51,399 - INFO - Procesando página 18
+2025-07-15 22:17:55,136 - INFO - Procesando página 19
+2025-07-15 22:17:58,976 - INFO - Procesando página 20
+2025-07-15 22:18:02,978 - INFO - Procesando página 21
+2025-07-15 22:18:06,774 - INFO - Procesando página 22
+2025-07-15 22:18:10,451 - INFO - Procesando página 23
+2025-07-15 22:18:14,092 - INFO - Procesando página 24
+2025-07-15 22:18:17,952 - INFO - Procesando página 25
+2025-07-15 22:18:21,654 - INFO - Procesando página 26
+2025-07-15 22:18:25,234 - INFO - Procesando página 27
+2025-07-15 22:18:28,859 - INFO - Procesando página 28
+2025-07-15 22:18:32,800 - INFO - Procesando página 29
+2025-07-15 22:18:36,647 - INFO - Procesando página 30
+2025-07-15 22:18:40,427 - INFO - Procesando página 31
+2025-07-15 22:18:44,251 - INFO - Procesando página 32
+2025-07-15 22:18:48,140 - INFO - Procesando página 33
+2025-07-15 22:18:51,994 - INFO - Procesando página 34
+2025-07-15 22:18:55,714 - INFO - Procesando página 35
+2025-07-15 22:18:59,513 - INFO - Procesando página 36
+2025-07-15 22:19:03,336 - INFO - Procesando página 37
+2025-07-15 22:19:07,100 - INFO - Procesando página 38
+2025-07-15 22:19:10,770 - INFO - Procesando página 39
+2025-07-15 22:19:14,563 - INFO - Procesando página 40
+2025-07-15 22:19:18,549 - INFO - Procesando página 41
+2025-07-15 22:19:22,319 - INFO - Procesando página 42
+2025-07-15 22:19:26,115 - INFO - Procesando página 43
+2025-07-15 22:19:29,778 - INFO - Procesando página 44
+2025-07-15 22:19:33,674 - INFO - Procesando página 45
+2025-07-15 22:19:37,389 - INFO - Procesando página 46
+2025-07-15 22:19:41,077 - INFO - Procesando página 47
+2025-07-15 22:19:44,935 - INFO - Procesando página 48
+2025-07-15 22:19:48,664 - INFO - Procesando página 49
+2025-07-15 22:19:52,460 - INFO - Procesando página 50
+2025-07-15 22:19:54,152 - INFO - Llegamos a la última página
+2025-07-15 22:19:54,152 - INFO - Total de registros extraídos: 1000
+2025-07-15 22:19:54,618 - INFO - Archivo Excel creado exitosamente: datos_empresas_Mosquera_2025-07-15_22-19-54.xlsx
+2025-07-15 22:19:54,619 - INFO - Re-navegando al módulo de empresas para el municipio: Madrid
+2025-07-15 22:20:06,690 - INFO - Procesando página 1
+2025-07-15 22:20:10,133 - INFO - Procesando página 2
+2025-07-15 22:20:13,580 - INFO - Procesando página 3
+2025-07-15 22:20:17,102 - INFO - Procesando página 4
+2025-07-15 22:20:20,548 - INFO - Procesando página 5
+2025-07-15 22:20:24,191 - INFO - Procesando página 6
+2025-07-15 22:20:28,082 - INFO - Procesando página 7
+2025-07-15 22:20:32,722 - INFO - Procesando página 8
+2025-07-15 22:20:37,570 - INFO - Procesando página 9
+2025-07-15 22:20:42,187 - INFO - Procesando página 10
+2025-07-15 22:20:47,078 - INFO - Procesando página 11
+2025-07-15 22:20:51,910 - INFO - Procesando página 12
+2025-07-15 22:20:56,437 - INFO - Procesando página 13
+2025-07-15 22:21:00,389 - INFO - Procesando página 14
+2025-07-15 22:21:04,522 - INFO - Procesando página 15
+2025-07-15 22:21:08,615 - INFO - Procesando página 16
+2025-07-15 22:21:12,655 - INFO - Procesando página 17
+2025-07-15 22:21:16,698 - INFO - Procesando página 18
+2025-07-15 22:21:21,172 - INFO - Procesando página 19
+2025-07-15 22:21:26,113 - INFO - Procesando página 20
+2025-07-15 22:21:29,809 - INFO - Procesando página 21
+2025-07-15 22:21:33,485 - INFO - Procesando página 22
+2025-07-15 22:21:37,179 - INFO - Procesando página 23
+2025-07-15 22:21:40,909 - INFO - Procesando página 24
+2025-07-15 22:21:44,615 - INFO - Procesando página 25
+2025-07-15 22:21:48,249 - INFO - Procesando página 26
+2025-07-15 22:21:51,986 - INFO - Procesando página 27
+2025-07-15 22:21:55,706 - INFO - Procesando página 28
+2025-07-15 22:21:59,419 - INFO - Procesando página 29
+2025-07-15 22:22:03,103 - INFO - Procesando página 30
+2025-07-15 22:22:06,803 - INFO - Procesando página 31
+2025-07-15 22:22:10,553 - INFO - Procesando página 32
+2025-07-15 22:22:14,236 - INFO - Procesando página 33
+2025-07-15 22:22:17,901 - INFO - Procesando página 34
+2025-07-15 22:22:21,624 - INFO - Procesando página 35
+2025-07-15 22:22:25,389 - INFO - Procesando página 36
+2025-07-15 22:22:29,102 - INFO - Procesando página 37
+2025-07-15 22:22:32,785 - INFO - Procesando página 38
+2025-07-15 22:22:36,511 - INFO - Procesando página 39
+2025-07-15 22:22:40,251 - INFO - Procesando página 40
+2025-07-15 22:22:41,868 - INFO - Llegamos a la última página
+2025-07-15 22:22:41,868 - INFO - Total de registros extraídos: 799
+2025-07-15 22:22:42,389 - INFO - Archivo Excel creado exitosamente: datos_empresas_Madrid_2025-07-15_22-22-41.xlsx
+2025-07-15 22:22:42,390 - INFO - Re-navegando al módulo de empresas para el municipio: Bojacá
+2025-07-15 22:22:54,709 - INFO - Procesando página 1
+2025-07-15 22:22:58,270 - INFO - Procesando página 2
+2025-07-15 22:23:01,769 - INFO - Procesando página 3
+2025-07-15 22:23:05,255 - INFO - Procesando página 4
+2025-07-15 22:23:08,749 - INFO - Procesando página 5
+2025-07-15 22:23:12,284 - INFO - Procesando página 6
+2025-07-15 22:23:15,821 - INFO - Procesando página 7
+2025-07-15 22:23:19,389 - INFO - Procesando página 8
+2025-07-15 22:23:22,970 - INFO - Procesando página 9
+2025-07-15 22:23:23,116 - INFO - Llegamos a la última página
+2025-07-15 22:23:23,116 - INFO - Total de registros extraídos: 161
+2025-07-15 22:23:23,272 - INFO - Archivo Excel creado exitosamente: datos_empresas_Bojacá_2025-07-15_22-23-23.xlsx
+2025-07-15 22:23:23,272 - INFO - Re-navegando al módulo de empresas para el municipio: Zipacón
+2025-07-15 22:23:35,310 - INFO - Procesando página 1
+2025-07-15 22:23:38,967 - INFO - Procesando página 2
+2025-07-15 22:23:40,429 - INFO - Llegamos a la última página
+2025-07-15 22:23:40,429 - INFO - Total de registros extraídos: 35
+2025-07-15 22:23:40,534 - INFO - Archivo Excel creado exitosamente: datos_empresas_Zipacón_2025-07-15_22-23-40.xlsx
+2025-07-15 22:23:40,535 - INFO - Re-navegando al módulo de empresas para el municipio: Facatativá
+2025-07-15 22:23:52,878 - INFO - Procesando página 1
+2025-07-15 22:23:56,766 - INFO - Procesando página 2
+2025-07-15 22:24:00,559 - INFO - Procesando página 3
+2025-07-15 22:24:04,416 - INFO - Procesando página 4
+2025-07-15 22:24:08,181 - INFO - Procesando página 5
+2025-07-15 22:24:12,071 - INFO - Procesando página 6
+2025-07-15 22:24:15,857 - INFO - Procesando página 7
+2025-07-15 22:24:19,661 - INFO - Procesando página 8
+2025-07-15 22:24:23,429 - INFO - Procesando página 9
+2025-07-15 22:24:27,270 - INFO - Procesando página 10
+2025-07-15 22:24:31,075 - INFO - Procesando página 11
+2025-07-15 22:24:34,876 - INFO - Procesando página 12
+2025-07-15 22:24:38,661 - INFO - Procesando página 13
+2025-07-15 22:24:42,522 - INFO - Procesando página 14
+2025-07-15 22:24:46,299 - INFO - Procesando página 15
+2025-07-15 22:24:50,099 - INFO - Procesando página 16
+2025-07-15 22:24:53,893 - INFO - Procesando página 17
+2025-07-15 22:24:57,740 - INFO - Procesando página 18
+2025-07-15 22:25:01,495 - INFO - Procesando página 19
+2025-07-15 22:25:05,312 - INFO - Procesando página 20
+2025-07-15 22:25:09,057 - INFO - Procesando página 21
+2025-07-15 22:25:12,937 - INFO - Procesando página 22
+2025-07-15 22:25:16,606 - INFO - Procesando página 23
+2025-07-15 22:25:20,362 - INFO - Procesando página 24
+2025-07-15 22:25:24,198 - INFO - Procesando página 25
+2025-07-15 22:25:28,136 - INFO - Procesando página 26
+2025-07-15 22:25:33,099 - INFO - Procesando página 27
+2025-07-15 22:25:38,095 - INFO - Procesando página 28
+2025-07-15 22:25:43,395 - INFO - Procesando página 29
+2025-07-15 22:25:48,828 - INFO - Procesando página 30
+2025-07-15 22:25:53,271 - INFO - Procesando página 31
+2025-07-15 22:25:57,669 - INFO - Procesando página 32
+2025-07-15 22:26:01,615 - INFO - Procesando página 33
+2025-07-15 22:26:06,419 - INFO - Procesando página 34
+2025-07-15 22:26:10,974 - INFO - Procesando página 35
+2025-07-15 22:26:15,314 - INFO - Procesando página 36
+2025-07-15 22:26:19,841 - INFO - Procesando página 37
+2025-07-15 22:26:25,936 - INFO - Procesando página 38
+2025-07-15 22:26:31,164 - INFO - Procesando página 39
+2025-07-15 22:26:35,253 - INFO - Procesando página 40
+2025-07-15 22:26:39,871 - INFO - Procesando página 41
+2025-07-15 22:26:44,063 - INFO - Procesando página 42
+2025-07-15 22:26:47,451 - INFO - Procesando página 43
+2025-07-15 22:26:51,108 - INFO - Procesando página 44
+2025-07-15 22:26:54,710 - INFO - Procesando página 45
+2025-07-15 22:26:58,330 - INFO - Procesando página 46
+2025-07-15 22:27:01,942 - INFO - Procesando página 47
+2025-07-15 22:27:05,492 - INFO - Procesando página 48
+2025-07-15 22:27:09,036 - INFO - Procesando página 49
+2025-07-15 22:27:12,670 - INFO - Procesando página 50
+2025-07-15 22:27:14,226 - INFO - Llegamos a la última página
+2025-07-15 22:27:14,226 - INFO - Total de registros extraídos: 1000
+2025-07-15 22:27:14,747 - INFO - Archivo Excel creado exitosamente: datos_empresas_Facatativá_2025-07-15_22-27-14.xlsx
+2025-07-15 22:27:14,747 - INFO - Re-navegando al módulo de empresas para el municipio: El Rosal
+2025-07-15 22:27:26,740 - INFO - Procesando página 1
+2025-07-15 22:27:30,148 - INFO - Procesando página 2
+2025-07-15 22:27:33,457 - INFO - Procesando página 3
+2025-07-15 22:27:36,856 - INFO - Procesando página 4
+2025-07-15 22:27:40,212 - INFO - Procesando página 5
+2025-07-15 22:27:43,722 - INFO - Procesando página 6
+2025-07-15 22:27:47,220 - INFO - Procesando página 7
+2025-07-15 22:27:50,803 - INFO - Procesando página 8
+2025-07-15 22:27:54,450 - INFO - Procesando página 9
+2025-07-15 22:27:57,988 - INFO - Procesando página 10
+2025-07-15 22:28:01,625 - INFO - Procesando página 11
+2025-07-15 22:28:05,276 - INFO - Procesando página 12
+2025-07-15 22:28:06,384 - INFO - Llegamos a la última página
+2025-07-15 22:28:06,384 - INFO - Total de registros extraídos: 233
+2025-07-15 22:28:06,544 - INFO - Archivo Excel creado exitosamente: datos_empresas_El Rosal_2025-07-15_22-28-06.xlsx
+2025-07-15 22:28:06,545 - INFO - Re-navegando al módulo de empresas para el municipio: Subachoque
+2025-07-15 22:28:18,487 - INFO - Procesando página 1
+2025-07-15 22:28:21,992 - INFO - Procesando página 2
+2025-07-15 22:28:25,651 - INFO - Procesando página 3
+2025-07-15 22:28:29,340 - INFO - Procesando página 4
+2025-07-15 22:28:33,015 - INFO - Procesando página 5
+2025-07-15 22:28:36,859 - INFO - Procesando página 6
+2025-07-15 22:28:40,514 - INFO - Procesando página 7
+2025-07-15 22:28:44,243 - INFO - Procesando página 8
+2025-07-15 22:28:48,089 - INFO - Procesando página 9
+2025-07-15 22:28:51,855 - INFO - Procesando página 10
+2025-07-15 22:28:55,554 - INFO - Procesando página 11
+2025-07-15 22:28:55,732 - INFO - Llegamos a la última página
+2025-07-15 22:28:55,732 - INFO - Total de registros extraídos: 201
+2025-07-15 22:28:55,915 - INFO - Archivo Excel creado exitosamente: datos_empresas_Subachoque_2025-07-15_22-28-55.xlsx
+2025-07-15 22:28:55,916 - INFO - Re-navegando al módulo de empresas para el municipio: Tabio
+2025-07-15 22:29:07,865 - INFO - Procesando página 1
+2025-07-15 22:29:11,260 - INFO - Procesando página 2
+2025-07-15 22:29:14,667 - INFO - Procesando página 3
+2025-07-15 22:29:18,082 - INFO - Procesando página 4
+2025-07-15 22:29:21,517 - INFO - Procesando página 5
+2025-07-15 22:29:25,122 - INFO - Procesando página 6
+2025-07-15 22:29:28,806 - INFO - Procesando página 7
+2025-07-15 22:29:32,348 - INFO - Procesando página 8
+2025-07-15 22:29:35,946 - INFO - Procesando página 9
+2025-07-15 22:29:37,256 - INFO - Llegamos a la última página
+2025-07-15 22:29:37,256 - INFO - Total de registros extraídos: 177
+2025-07-15 22:29:37,383 - INFO - Archivo Excel creado exitosamente: datos_empresas_Tabio_2025-07-15_22-29-37.xlsx
+2025-07-15 22:29:37,384 - INFO - Re-navegando al módulo de empresas para el municipio: Cota
+2025-07-15 22:29:49,346 - INFO - Procesando página 1
+2025-07-15 22:29:52,709 - INFO - Procesando página 2
+2025-07-15 22:29:56,113 - INFO - Procesando página 3
+2025-07-15 22:29:59,572 - INFO - Procesando página 4
+2025-07-15 22:30:02,964 - INFO - Procesando página 5
+2025-07-15 22:30:06,439 - INFO - Procesando página 6
+2025-07-15 22:30:09,964 - INFO - Procesando página 7
+2025-07-15 22:30:13,435 - INFO - Procesando página 8
+2025-07-15 22:30:16,943 - INFO - Procesando página 9
+2025-07-15 22:30:20,539 - INFO - Procesando página 10
+2025-07-15 22:30:24,218 - INFO - Procesando página 11
+2025-07-15 22:30:27,815 - INFO - Procesando página 12
+2025-07-15 22:30:31,400 - INFO - Procesando página 13
+2025-07-15 22:30:34,913 - INFO - Procesando página 14
+2025-07-15 22:30:38,351 - INFO - Procesando página 15
+2025-07-15 22:30:41,852 - INFO - Procesando página 16
+2025-07-15 22:30:45,369 - INFO - Procesando página 17
+2025-07-15 22:30:49,015 - INFO - Procesando página 18
+2025-07-15 22:30:52,575 - INFO - Procesando página 19
+2025-07-15 22:30:56,107 - INFO - Procesando página 20
+2025-07-15 22:30:59,625 - INFO - Procesando página 21
+2025-07-15 22:31:03,324 - INFO - Procesando página 22
+2025-07-15 22:31:06,878 - INFO - Procesando página 23
+2025-07-15 22:31:10,354 - INFO - Procesando página 24
+2025-07-15 22:31:13,916 - INFO - Procesando página 25
+2025-07-15 22:31:17,557 - INFO - Procesando página 26
+2025-07-15 22:31:21,122 - INFO - Procesando página 27
+2025-07-15 22:31:24,590 - INFO - Procesando página 28
+2025-07-15 22:31:28,065 - INFO - Procesando página 29
+2025-07-15 22:31:31,537 - INFO - Procesando página 30
+2025-07-15 22:31:35,168 - INFO - Procesando página 31
+2025-07-15 22:31:38,740 - INFO - Procesando página 32
+2025-07-15 22:31:42,234 - INFO - Procesando página 33
+2025-07-15 22:31:46,201 - INFO - Procesando página 34
+2025-07-15 22:31:50,959 - INFO - Procesando página 35
+2025-07-15 22:31:55,931 - INFO - Procesando página 36
+2025-07-15 22:32:00,695 - INFO - Procesando página 37
+2025-07-15 22:32:05,339 - INFO - Procesando página 38
+2025-07-15 22:32:10,431 - INFO - Procesando página 39
+2025-07-15 22:32:14,888 - INFO - Procesando página 40
+2025-07-15 22:32:19,216 - INFO - Procesando página 41
+2025-07-15 22:32:24,474 - INFO - Procesando página 42
+2025-07-15 22:32:29,228 - INFO - Procesando página 43
+2025-07-15 22:32:33,994 - INFO - Procesando página 44
+2025-07-15 22:32:38,835 - INFO - Procesando página 45
+2025-07-15 22:32:44,538 - INFO - Procesando página 46
+2025-07-15 22:32:48,070 - INFO - Procesando página 47
+2025-07-15 22:32:51,555 - INFO - Procesando página 48
+2025-07-15 22:32:55,125 - INFO - Procesando página 49
+2025-07-15 22:32:58,697 - INFO - Procesando página 50
+2025-07-15 22:33:00,288 - INFO - Llegamos a la última página
+2025-07-15 22:33:00,288 - INFO - Total de registros extraídos: 1000
+2025-07-15 22:33:00,757 - INFO - Archivo Excel creado exitosamente: datos_empresas_Cota_2025-07-15_22-33-00.xlsx
+2025-07-15 22:33:00,758 - INFO - Re-navegando al módulo de empresas para el municipio: Funza
+2025-07-15 22:33:12,754 - INFO - Procesando página 1
+2025-07-15 22:33:16,300 - INFO - Procesando página 2
+2025-07-15 22:33:19,898 - INFO - Procesando página 3
+2025-07-15 22:33:23,513 - INFO - Procesando página 4
+2025-07-15 22:33:27,132 - INFO - Procesando página 5
+2025-07-15 22:33:30,701 - INFO - Procesando página 6
+2025-07-15 22:33:34,385 - INFO - Procesando página 7
+2025-07-15 22:33:37,982 - INFO - Procesando página 8
+2025-07-15 22:33:41,566 - INFO - Procesando página 9
+2025-07-15 22:33:45,162 - INFO - Procesando página 10
+2025-07-15 22:33:48,722 - INFO - Procesando página 11
+2025-07-15 22:33:52,222 - INFO - Procesando página 12
+2025-07-15 22:33:55,801 - INFO - Procesando página 13
+2025-07-15 22:33:59,297 - INFO - Procesando página 14
+2025-07-15 22:34:02,810 - INFO - Procesando página 15
+2025-07-15 22:34:06,325 - INFO - Procesando página 16
+2025-07-15 22:34:09,731 - INFO - Procesando página 17
+2025-07-15 22:34:13,373 - INFO - Procesando página 18
+2025-07-15 22:34:16,983 - INFO - Procesando página 19
+2025-07-15 22:34:20,537 - INFO - Procesando página 20
+2025-07-15 22:34:24,065 - INFO - Procesando página 21
+2025-07-15 22:34:27,616 - INFO - Procesando página 22
+2025-07-15 22:34:31,117 - INFO - Procesando página 23
+2025-07-15 22:34:34,701 - INFO - Procesando página 24
+2025-07-15 22:34:38,249 - INFO - Procesando página 25
+2025-07-15 22:34:41,859 - INFO - Procesando página 26
+2025-07-15 22:34:45,391 - INFO - Procesando página 27
+2025-07-15 22:34:48,980 - INFO - Procesando página 28
+2025-07-15 22:34:52,557 - INFO - Procesando página 29
+2025-07-15 22:34:56,152 - INFO - Procesando página 30
+2025-07-15 22:34:59,634 - INFO - Procesando página 31
+2025-07-15 22:35:03,203 - INFO - Procesando página 32
+2025-07-15 22:35:06,706 - INFO - Procesando página 33
+2025-07-15 22:35:10,204 - INFO - Procesando página 34
+2025-07-15 22:35:13,781 - INFO - Procesando página 35
+2025-07-15 22:35:17,333 - INFO - Procesando página 36
+2025-07-15 22:35:20,921 - INFO - Procesando página 37
+2025-07-15 22:35:24,516 - INFO - Procesando página 38
+2025-07-15 22:35:28,090 - INFO - Procesando página 39
+2025-07-15 22:35:31,777 - INFO - Procesando página 40
+2025-07-15 22:35:35,244 - INFO - Procesando página 41
+2025-07-15 22:35:38,818 - INFO - Procesando página 42
+2025-07-15 22:35:42,434 - INFO - Procesando página 43
+2025-07-15 22:35:45,973 - INFO - Procesando página 44
+2025-07-15 22:35:49,441 - INFO - Procesando página 45
+2025-07-15 22:35:52,949 - INFO - Procesando página 46
+2025-07-15 22:35:56,504 - INFO - Procesando página 47
+2025-07-15 22:36:00,117 - INFO - Procesando página 48
+2025-07-15 22:36:03,675 - INFO - Procesando página 49
+2025-07-15 22:36:07,234 - INFO - Procesando página 50
+2025-07-15 22:36:08,794 - INFO - Llegamos a la última página
+2025-07-15 22:36:08,794 - INFO - Total de registros extraídos: 1000
+2025-07-15 22:36:09,263 - INFO - Archivo Excel creado exitosamente: datos_empresas_Funza_2025-07-15_22-36-08.xlsx
+2025-07-15 22:36:09,264 - INFO - Re-navegando al módulo de empresas para el municipio: Tenjo
+2025-07-15 22:36:21,253 - INFO - Procesando página 1
+2025-07-15 22:36:24,657 - INFO - Procesando página 2
+2025-07-15 22:36:28,100 - INFO - Procesando página 3
+2025-07-15 22:36:31,627 - INFO - Procesando página 4
+2025-07-15 22:36:35,099 - INFO - Procesando página 5
+2025-07-15 22:36:38,545 - INFO - Procesando página 6
+2025-07-15 22:36:42,103 - INFO - Procesando página 7
+2025-07-15 22:36:46,758 - INFO - Procesando página 8
+2025-07-15 22:36:51,369 - INFO - Procesando página 9
+2025-07-15 22:36:55,837 - INFO - Procesando página 10
+2025-07-15 22:37:00,147 - INFO - Procesando página 11
+2025-07-15 22:37:04,288 - INFO - Procesando página 12
+2025-07-15 22:37:08,682 - INFO - Procesando página 13
+2025-07-15 22:37:12,936 - INFO - Procesando página 14
+2025-07-15 22:37:17,356 - INFO - Procesando página 15
+2025-07-15 22:37:21,863 - INFO - Procesando página 16
+2025-07-15 22:37:25,632 - INFO - Procesando página 17
+2025-07-15 22:37:29,339 - INFO - Procesando página 18
+2025-07-15 22:37:33,060 - INFO - Procesando página 19
+2025-07-15 22:37:33,841 - INFO - Llegamos a la última página
+2025-07-15 22:37:33,841 - INFO - Total de registros extraídos: 368
+2025-07-15 22:37:34,102 - INFO - Archivo Excel creado exitosamente: datos_empresas_Tenjo_2025-07-15_22-37-33.xlsx
+2025-07-15 22:37:34,103 - INFO - Re-navegando al módulo de empresas para el municipio: Guasca
+2025-07-15 22:37:46,109 - INFO - Procesando página 1
+2025-07-15 22:37:49,942 - INFO - Procesando página 2
+2025-07-15 22:37:53,760 - INFO - Procesando página 3
+2025-07-15 22:37:57,650 - INFO - Procesando página 4
+2025-07-15 22:37:58,764 - INFO - Llegamos a la última página
+2025-07-15 22:37:58,764 - INFO - Total de registros extraídos: 72
+2025-07-15 22:37:58,866 - INFO - Archivo Excel creado exitosamente: datos_empresas_Guasca_2025-07-15_22-37-58.xlsx
+2025-07-15 22:37:58,867 - INFO - Re-navegando al módulo de empresas para el municipio: Gachetá
+2025-07-15 22:38:10,774 - INFO - Procesando página 1
+2025-07-15 22:38:14,298 - INFO - Procesando página 2
+2025-07-15 22:38:17,764 - INFO - Procesando página 3
+2025-07-15 22:38:19,294 - INFO - Llegamos a la última página
+2025-07-15 22:38:19,295 - INFO - Total de registros extraídos: 60
+2025-07-15 22:38:19,384 - INFO - Archivo Excel creado exitosamente: datos_empresas_Gachetá_2025-07-15_22-38-19.xlsx
+2025-07-15 22:38:19,385 - INFO - Re-navegando al módulo de empresas para el municipio: Gama
+2025-07-15 22:38:31,279 - INFO - Procesando página 1
+2025-07-15 22:38:32,022 - INFO - Llegamos a la última página
+2025-07-15 22:38:32,022 - INFO - Total de registros extraídos: 9
+2025-07-15 22:38:32,086 - INFO - Archivo Excel creado exitosamente: datos_empresas_Gama_2025-07-15_22-38-32.xlsx
+2025-07-15 22:38:32,086 - INFO - Re-navegando al módulo de empresas para el municipio: Ubalá
+2025-07-15 22:38:43,874 - INFO - Procesando página 1
+2025-07-15 22:38:45,614 - INFO - Llegamos a la última página
+2025-07-15 22:38:45,614 - INFO - Total de registros extraídos: 20
+2025-07-15 22:38:45,681 - INFO - Archivo Excel creado exitosamente: datos_empresas_Ubalá_2025-07-15_22-38-45.xlsx
+2025-07-15 22:38:45,682 - INFO - Re-navegando al módulo de empresas para el municipio: Gachalá
+2025-07-15 22:38:57,645 - INFO - Procesando página 1
+2025-07-15 22:38:58,877 - INFO - Llegamos a la última página
+2025-07-15 22:38:58,877 - INFO - Total de registros extraídos: 16
+2025-07-15 22:38:58,947 - INFO - Archivo Excel creado exitosamente: datos_empresas_Gachalá_2025-07-15_22-38-58.xlsx
+2025-07-15 22:38:58,948 - INFO - Re-navegando al módulo de empresas para el municipio: Junín
+2025-07-15 22:39:10,746 - INFO - Procesando página 1
+2025-07-15 22:39:14,304 - INFO - Procesando página 2
+2025-07-15 22:39:14,591 - INFO - Llegamos a la última página
+2025-07-15 22:39:14,591 - INFO - Total de registros extraídos: 23
+2025-07-15 22:39:14,669 - INFO - Archivo Excel creado exitosamente: datos_empresas_Junín_2025-07-15_22-39-14.xlsx
+2025-07-15 22:39:17,008 - INFO - Driver cerrado
