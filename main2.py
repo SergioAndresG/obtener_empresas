@@ -318,9 +318,9 @@ class ExtractorDatosEmpresa:
             total_empresas = len(df)
             
             logging.info(f"Archivo Excel creado exitosamente: {nombre_archivo}")
-            print(f"✅ Archivo Excel creado: {nombre_archivo}")
-            print(f"📊 Total de registros: {total_empresas}")
-            print(f"🌾 Empresas agropecuarias: {empresas_agropecuarias} ({empresas_agropecuarias/total_empresas*100:.1f}%)")
+            print(f" Archivo Excel creado: {nombre_archivo}")
+            print(f" Total de registros: {total_empresas}")
+            print(f" Empresas agropecuarias: {empresas_agropecuarias} ({empresas_agropecuarias/total_empresas*100:.1f}%)")
             
             return True
             
@@ -495,11 +495,11 @@ class ExtractorDatosEmpresa:
             # Guardar cambios
             wb.save(nombre_archivo)
             
-            print(f"🎨 Formato aplicado: Empresas agropecuarias resaltadas en verde")
+            print(f" Formato aplicado: Empresas agropecuarias resaltadas en verde")
             
         except Exception as e:
             logging.error(f"Error aplicando formato: {str(e)}")
-            print(f"⚠️ Error aplicando formato: {str(e)}")
+            print(f" Error aplicando formato: {str(e)}")
             
     def navegar_a_empresas(self):
         """
@@ -529,14 +529,14 @@ class ExtractorDatosEmpresa:
             print(f"URL actual: {current_url}")
             
             if "funcionario/empresa" in current_url:
-                print("✅ Navegación exitosa via menú")
+                print(" Navegación exitosa via menú")
                 return True
             else:
-                print("❌ No se pudo navegar via menú")
+                print(" No se pudo navegar via menú")
                 return False
         except Exception as e:
             logging.error(f"Error navegando via menú: {str(e)}")
-            print(f"❌ Error en navegación via menú: {str(e)}")
+            print(f" Error en navegación via menú: {str(e)}")
             return False
         
     def hacer_consulta_avanzada_con_fechas(self, fecha_desde, fecha_hasta):
@@ -615,10 +615,10 @@ class ExtractorDatosEmpresa:
                 # Verificar si se estableció correctamente
                 valor_actual = input_fecha.get_attribute('value')
                 if valor_actual == fecha:
-                    print(f"✅ Fecha {tipo_fecha} configurada correctamente: {fecha}")
+                    print(f" Fecha {tipo_fecha} configurada correctamente: {fecha}")
                     return True
                 else:
-                    print(f"⚠️ Valor no coincide. Esperado: {fecha}, Actual: {valor_actual}")
+                    print(f" Valor no coincide. Esperado: {fecha}, Actual: {valor_actual}")
                 
             except Exception as e:
                 print(f"❌ Método 1 falló para {tipo_fecha}: {str(e)}")
@@ -642,11 +642,11 @@ class ExtractorDatosEmpresa:
                 # Verificar
                 valor_actual = input_fecha.get_attribute('value')
                 if valor_actual == fecha:
-                    print(f"✅ Fecha {tipo_fecha} configurada con método 2: {fecha}")
+                    print(f" Fecha {tipo_fecha} configurada con método 2: {fecha}")
                     return True
                     
             except Exception as e:
-                print(f"❌ Método 2 falló para {tipo_fecha}: {str(e)}")
+                print(f" Método 2 falló para {tipo_fecha}: {str(e)}")
             
             # Método 3: Simular eventos de teclado
             try:
@@ -665,11 +665,11 @@ class ExtractorDatosEmpresa:
                 # Verificar
                 valor_actual = input_fecha.get_attribute('value')
                 if valor_actual == fecha:
-                    print(f"✅ Fecha {tipo_fecha} configurada con método 3: {fecha}")
+                    print(f" Fecha {tipo_fecha} configurada con método 3: {fecha}")
                     return True
                     
             except Exception as e:
-                print(f"❌ Método 3 falló para {tipo_fecha}: {str(e)}")
+                print(f" Método 3 falló para {tipo_fecha}: {str(e)}")
             
             # Método 4: Disparar eventos JavaScript
             try:
@@ -684,18 +684,18 @@ class ExtractorDatosEmpresa:
                 input_fecha = self.driver.find_element(By.ID, campo_id)
                 valor_actual = input_fecha.get_attribute('value')
                 if valor_actual == fecha:
-                    print(f"✅ Fecha {tipo_fecha} configurada con método 4: {fecha}")
+                    print(f" Fecha {tipo_fecha} configurada con método 4: {fecha}")
                     return True
                     
             except Exception as e:
-                print(f"❌ Método 4 falló para {tipo_fecha}: {str(e)}")
+                print(f" Método 4 falló para {tipo_fecha}: {str(e)}")
             
-            print(f"❌ Todos los métodos fallaron para configurar fecha {tipo_fecha}")
+            print(f" Todos los métodos fallaron para configurar fecha {tipo_fecha}")
             return False
             
         except Exception as e:
             logging.error(f"Error configurando fecha {tipo_fecha}: {str(e)}")
-            print(f"❌ Error general configurando fecha {tipo_fecha}: {str(e)}")
+            print(f" Error general configurando fecha {tipo_fecha}: {str(e)}")
             return False
     
     def ejecutar_proceso_completo_fechas(self, fecha_desde, fecha_hasta):
@@ -726,7 +726,7 @@ class ExtractorDatosEmpresa:
                 try:
                     # Esperar a que la tabla se actualice después del filtro
                     self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, TABLA_SELECTOR + " " + FILAS_DATOS_SELECTOR)))
-                    print(f"📄 Tabla actualizada para el rango {fecha_desde} - {fecha_hasta}, extrayendo datos...")
+                    print(f" Tabla actualizada para el rango {fecha_desde} - {fecha_hasta}, extrayendo datos...")
                     
                     # Navegar por todas las páginas para extraer datos
                     self.navegar_paginas()
@@ -740,12 +740,12 @@ class ExtractorDatosEmpresa:
                         nombre_archivo = f"empresas_cundinamarca_{fecha_desde_archivo}_a_{fecha_hasta_archivo}_{timestamp}.xlsx"
                         
                         if self.crear_archivo_excel(nombre_archivo):
-                            print(f"✅ Proceso completado exitosamente!")
-                            print(f"📁 Archivo generado: {nombre_archivo}")
+                            print(f" Proceso completado exitosamente!")
+                            print(f" Archivo generado: {nombre_archivo}")
                         else:
                             logging.warning("No se pudo crear el archivo Excel.")
                     else:
-                        print(f"⚠️ No se extrajeron datos para el rango de fechas especificado")
+                        print(f" No se extrajeron datos para el rango de fechas especificado")
                         logging.info(f"No se extrajeron datos para el rango {fecha_desde} - {fecha_hasta}")
                     
                 except TimeoutException:
@@ -781,18 +781,18 @@ def main():
         fecha_desde = "01-08-2025"  # 1 de enero de 2024
         fecha_hasta = "01-09-2025"  # 1 de febrero de 2024
         
-        print(f"🚀 Iniciando extracción de empresas de Cundinamarca")
-        print(f"📅 Rango de fechas: {fecha_desde} - {fecha_hasta}")
+        print(f" Iniciando extracción de empresas de Cundinamarca")
+        print(f" Rango de fechas: {fecha_desde} - {fecha_hasta}")
         
         extractor = ExtractorDatosEmpresa()
         extractor.ejecutar_proceso_completo_fechas(fecha_desde, fecha_hasta)
         
     except KeyboardInterrupt:
-        print("\n⚠️  Proceso interrumpido por el usuario")
+        print("\n  Proceso interrumpido por el usuario")
         logging.info("Proceso interrumpido por el usuario")
     
     except Exception as e:
-        print(f"❌ Error inesperado: {str(e)}")
+        print(f" Error inesperado: {str(e)}")
         logging.error(f"Error inesperado: {str(e)}")
         traceback.print_exc()
 
