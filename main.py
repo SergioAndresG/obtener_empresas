@@ -35,7 +35,7 @@ def main():
             "Junín"
         ]
         
-        print("🚀 Iniciando el proceso de extracción de datos de empresas...")
+        print(" Iniciando el proceso de extracción de datos de empresas...")
         
         # Crear instancia del extractor
         extractor = ExtractorDatosEmpresa()
@@ -44,10 +44,10 @@ def main():
         extractor.ejecutar_proceso_completo(municipios, URL_LOGIN)
         
     except KeyboardInterrupt:
-        print("\n⚠️ Proceso interrumpido por el usuario")
+        print("\n Proceso interrumpido por el usuario")
         
     except Exception as e:
-        print(f"❌ Error inesperado: {str(e)}")
+        print(f" Error inesperado: {str(e)}")
         traceback.print_exc()
 
 
