@@ -1,4 +1,11 @@
+# Archivo de configuración de variables de entorno
 .env
 
+# Archivos de logs
 *.log
+# Archivos que se guardan localmente, no hay necesidad de subirlos a github
 *.xlsx
+
+# Archivos de cache de python
+__pycache__/
+*.pyc
