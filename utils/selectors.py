@@ -1,5 +1,5 @@
 """
-Selectores CSS utilizados en la aplicación
+Selectores CSS utilizados
 """
 
 # Selectores de la tabla principal
