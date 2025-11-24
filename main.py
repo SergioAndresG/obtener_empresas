@@ -17,12 +17,10 @@ from selenium.webdriver.chrome.options import Options
 import traceback
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill, Font, Alignment
-from openpyxl.utils.dataframe import dataframe_to_rows
-from xlutils.copy import copy
 
+# ===== Modulos locales =====
+from urls.urls import URL_FORMULARIO, URL_LOGIN
 
-URL_LOGIN = 'https://agenciapublicadeempleo.sena.edu.co/spe-web/spe/login'
-URL_FORMULARIO = 'https://ape.sena.edu.co/spe-web/spe/funcionario/empresa'
     
 # 1. Selector de la tabla principal
 TABLA_SELECTOR = "table#bus-table"
@@ -53,8 +51,6 @@ SELECTORES_COLUMNAS = {
     "accion": "td:nth-child(7)"
 }
 
-
-
 # Configurar logging
 log_filename = f"automatizacion_aprendices_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
 logging.basicConfig(
@@ -66,7 +62,6 @@ logging.basicConfig(
 # Cargar variables de entorno
 load_dotenv()
 
-
 # --- Credenciales de login desde variables de entorno ---
 USUARIO_LOGIN = os.getenv('USUARIO_LOGIN')
 CONTRASENA_LOGIN = os.getenv('CONTRASENA_LOGIN')
@@ -75,6 +70,7 @@ if not USUARIO_LOGIN or not CONTRASENA_LOGIN:
     logging.error(error_msg)
     print(error_msg)
     exit()
+
 
 class ExtractorDatosEmpresa:
     def __init__(self):
@@ -127,10 +123,7 @@ class ExtractorDatosEmpresa:
 
             self.driver.get(URL_LOGIN)
             logging.info("Abriendo página de login...")
-            
-
             self.wait.until(EC.invisibility_of_element_located((By.ID, "content-load")))
-
 
             # Esperar a que el radio button esté disponible
             radio_persona = self.wait.until(EC.element_to_be_clickable(
@@ -162,7 +155,7 @@ class ExtractorDatosEmpresa:
         
 
 
-    # FUNCIÓN ADAPTADA PARA TU TABLA ESPECÍFICA
+    # FUNCIÓN ADAPTADA PARA TABLA ESPECÍFICA
     def extraer_datos_tabla_especifica(self):
         """
         Función específica para extraer datos de tu tabla
