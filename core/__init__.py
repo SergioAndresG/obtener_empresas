@@ -1,2 +1,2 @@
 from .driver_manager import DriverManager
-from base_extractor import ExtractorDatosEmpresa
+from .base_extractor import ExtractorDatosEmpresa
