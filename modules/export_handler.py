@@ -2,6 +2,7 @@
 Módulo de exportación de datos a Excel
 """
 import logging
+import os
 import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
@@ -24,6 +25,10 @@ class ExportHandler:
         Returns:
             bool: True si la creación fue exitosa
         """
+
+        excel_dir = "REPORTE_EMPRESAS"
+        os.makedirs(excel_dir, exist_ok=True)
+
         try:
             if not datos:
                 logging.error("No hay datos para exportar")
@@ -31,17 +36,19 @@ class ExportHandler:
             
             # Crear DataFrame
             df = pd.DataFrame(datos)
+
+            ruta_archivo = os.path.join(excel_dir, nombre_archivo)
             
             # Crear archivo Excel
-            with pd.ExcelWriter(nombre_archivo, engine='openpyxl') as writer:
+            with pd.ExcelWriter(excel_dir, nombre_archivo, engine='openpyxl') as writer:
                 df.to_excel(writer, sheet_name='Datos_Empresas', index=False)
             
             # Aplicar formato
-            ExportHandler._aplicar_formato_excel(nombre_archivo)
+            ExportHandler._aplicar_formato_excel(ruta_archivo)
             
             logging.info(f"Archivo Excel creado exitosamente: {nombre_archivo}")
-            print(f"✅ Archivo Excel creado: {nombre_archivo}")
-            print(f"📊 Total de registros: {len(datos)}")
+            print(f"Archivo Excel creado: {nombre_archivo}")
+            print(f"Total de registros: {len(datos)}")
             
             return True
             
