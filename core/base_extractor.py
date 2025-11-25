@@ -50,7 +50,7 @@ class ExtractorDatosEmpresa:
             bool: True si el proceso fue exitoso
         """
         try:
-            print("🚀 Iniciando proceso de extracción de datos...")
+            print("Iniciando proceso de extracción de datos...")
             
             # Configurar driver
             if not self.driver_manager.configurar_driver():
@@ -71,12 +71,12 @@ class ExtractorDatosEmpresa:
             for municipio in municipios:
                 self._procesar_municipio(municipio)
             
-            print("✅ Proceso completado exitosamente!")
+            print("Proceso completado exitosamente!")
             return True
             
         except Exception as e:
             logging.error(f"Error en proceso completo: {str(e)}")
-            print(f"❌ Error en el proceso: {str(e)}")
+            print(f"Error en el proceso: {str(e)}")
             traceback.print_exc()
             return False
             
@@ -133,7 +133,7 @@ class ExtractorDatosEmpresa:
                 (By.CSS_SELECTOR, TABLA_SELECTOR + " " + FILAS_DATOS_SELECTOR)
             ))
             
-            print(f"📄 Tabla actualizada para '{municipio}', extrayendo datos...")
+            print(f"Tabla actualizada para '{municipio}', extrayendo datos...")
             
             # Navegar por todas las páginas
             self.extraction_module.navegar_paginas()
