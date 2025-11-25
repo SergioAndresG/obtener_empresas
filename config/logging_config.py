@@ -11,7 +11,7 @@ def configurar_logging():
     Returns:
         str: Nombre del archivo de log creado
     """
-    log_filename = f"automatizacion_aprendices_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
+    log_filename = f"repote_empresas_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
     
     logging.basicConfig(
         filename=log_filename,
