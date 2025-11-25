@@ -49,15 +49,15 @@ class NavigationModule:
             print(f"URL actual: {current_url}")
             
             if validar_url(current_url, "funcionario/empresa"):
-                print("✅ Navegación exitosa al módulo de empresas")
+                print("Navegación exitosa al módulo de empresas")
                 return True
             else:
-                print("❌ No se pudo navegar al módulo de empresas")
+                print("No se pudo navegar al módulo de empresas")
                 return False
                 
         except Exception as e:
             logging.error(f"Error navegando a empresas: {str(e)}")
-            print(f"❌ Error en navegación: {str(e)}")
+            print(f"Error en navegación: {str(e)}")
             return False
     
     def hacer_consulta_avanzada(self, municipio, pais="Colombia", departamento="Cundinamarca"):
@@ -94,7 +94,7 @@ class NavigationModule:
             
         except Exception as e:
             logging.error(f"Error en búsqueda avanzada: {str(e)}")
-            print(f"❌ Error en búsqueda avanzada: {str(e)}")
+            print(f"Error en búsqueda avanzada: {str(e)}")
             return False
     
     def _abrir_modal_busqueda(self):
