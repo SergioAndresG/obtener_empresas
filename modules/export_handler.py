@@ -6,6 +6,7 @@ import os
 import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
+import datetime
 
 from config import settings
 
@@ -26,7 +27,7 @@ class ExportHandler:
             bool: True si la creación fue exitosa
         """
 
-        excel_dir = "REPORTE_EMPRESAS"
+        excel_dir = f"REPORTE_EMPRESAS - {datetime.now().strftime('%Y-%m-%d')}"
         os.makedirs(excel_dir, exist_ok=True)
 
         try:
@@ -40,7 +41,7 @@ class ExportHandler:
             ruta_archivo = os.path.join(excel_dir, nombre_archivo)
             
             # Crear archivo Excel
-            with pd.ExcelWriter(excel_dir, nombre_archivo, engine='openpyxl') as writer:
+            with pd.ExcelWriter(nombre_archivo, engine='openpyxl') as writer:
                 df.to_excel(writer, sheet_name='Datos_Empresas', index=False)
             
             # Aplicar formato
