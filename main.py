@@ -32,10 +32,10 @@ def main():
             "Gama",
             "Ubalá",
             "Gachalá",
-            "Junín"
+            "Junín",
         ]
         
-        print(" Iniciando el proceso de extracción de datos de empresas...")
+        print("Iniciando el proceso de extracción de datos de empresas...")
         
         # Crear instancia del extractor
         extractor = ExtractorDatosEmpresa()
