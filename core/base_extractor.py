@@ -93,12 +93,6 @@ class ExtractorDatosEmpresa:
         try:
             print(f"\n--- Procesando datos para el municipio: {municipio} ---")
             
-            # Re-navegar al módulo de empresas
-            logging.info(f"Re-navegando al módulo de empresas para: {municipio}")
-            if not self.navigation_module.navegar_a_empresas():
-                logging.error(f"Fallo al re-navegar para {municipio}. Saltando.")
-                return
-            
             # Limpiar datos previos
             self.extraction_module.limpiar_datos()
             
