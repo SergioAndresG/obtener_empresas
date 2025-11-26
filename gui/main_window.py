@@ -69,7 +69,7 @@ class App(ctk.CTk):
         # --- Frame Derecho: Controles y Resultados ---
         frame_derecho = ctk.CTkFrame(self)
         frame_derecho.grid(row=0, column=1, rowspan=2, padx=10, pady=10, sticky="nsew")
-        frame_derecho.grid_rowconfigure(1, weight=1)
+        frame_derecho.grid_rowconfigure(2, weight=1)
         frame_derecho.grid_columnconfigure(0, weight=1)
         
         # Contador de seleccionados
@@ -78,7 +78,7 @@ class App(ctk.CTk):
             text=f"Municipios seleccionados: {len(municipios_cobertura)}",
             font=("Arial", 12)
         )
-        self.label_contador.grid(row=0, column=0, pady=10)
+        self.label_contador.grid(row=0, column=0, pady=10, sticky="n")
         
         # Actualizar contador cuando cambie selección
         for var in self.checkboxes.values():
@@ -94,15 +94,16 @@ class App(ctk.CTk):
             fg_color="#2ecc71",
             hover_color="#27ae60"
         )
-        self.boton_buscar.grid(row=0, column=0, pady=(50, 10), padx=20)
+        self.boton_buscar.grid(row=1, column=0, pady=20, padx=20)
         
         # Caja de texto para logs
         self.textbox_resultados = ctk.CTkTextbox(
             frame_derecho, 
             state="disabled",
-            font=("Consolas", 10)
+            font=("Consolas", 10),
+            height=100
         )
-        self.textbox_resultados.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
+        self.textbox_resultados.grid(row=2, column=0, sticky="nsew", padx=10, pady=10)
 
     def actualizar_contador(self):
         """Actualiza el contador de municipios seleccionados"""
@@ -171,20 +172,20 @@ class App(ctk.CTk):
             
             # Mostrar resultado final
             if exito:
-                self.log(f"\n✅ Proceso completado exitosamente")
+                self.log(f"\nProceso completado exitosamente")
                 messagebox.showinfo(
                     "Éxito", 
                     f"Extracción completada para {len(municipios)} municipio(s)"
                 )
             else:
-                self.log(f"\n❌ El proceso finalizó con errores")
+                self.log(f"\nEl proceso finalizó con errores")
                 messagebox.showerror(
                     "Error", 
                     "Hubo errores durante la extracción. Revisa los logs."
                 )
                 
         except Exception as e:
-            self.log(f"\n❌ Error crítico: {str(e)}")
+            self.log(f"\nError crítico: {str(e)}")
             messagebox.showerror("Error", f"Error inesperado: {str(e)}")
             
         finally:
