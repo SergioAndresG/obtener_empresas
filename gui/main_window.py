@@ -5,6 +5,8 @@ from core.base_extractor import ExtractorDatosEmpresa
 from urls.urls import URL_LOGIN
 from config.logging_config import configurar_logging
 from config.municipalities import municipios_cobertura
+from .dialogs.conflict_dialog import ConflictDialog
+from utils.validator_file import FileValidator
 
 
 class App(ctk.CTk):
@@ -134,9 +136,8 @@ class App(ctk.CTk):
         self.textbox_resultados.insert("end", mensaje + "\n")
         self.textbox_resultados.configure(state="disabled")
         self.textbox_resultados.see("end")
-
     def iniciar_busqueda(self):
-        """Inicia el proceso de extracción en un thread separado"""
+        """Inicia el proceso de extracción con validación previa"""
         municipios_seleccionados = self.obtener_municipios_seleccionados()
         
         # Validar que haya al menos uno seleccionado
@@ -147,20 +148,100 @@ class App(ctk.CTk):
             )
             return
         
+        # PRE-VALIDACIÓN: Verificar archivos existentes
+        self.log(f"\nVerificando archivos existentes...")
+        validacion = FileValidator.verificar_archivos_existentes(municipios_seleccionados)
+        
+        # Si hay archivos existentes, mostrar diálogo
+        if validacion['existentes']:
+            self._manejar_conflictos(validacion, municipios_seleccionados)
+        else:
+            # No hay conflictos, proceder directamente
+            self.log(f"No hay conflictos. Iniciando extracción...")
+            self._iniciar_extraccion(municipios_seleccionados)
+    
+    def _manejar_conflictos(self, validacion, municipios_seleccionados):
+        """
+        Maneja los conflictos de archivos existentes
+        
+        Args:
+            validacion: Resultado de FileValidator.verificar_archivos_existentes
+            municipios_seleccionados: Lista de municipios a procesar
+        """
+        # Mostrar diálogo de conflictos
+        dialog = ConflictDialog(
+            self, 
+            validacion['existentes'],
+            validacion['nuevos']
+        )
+        self.wait_window(dialog)  # Esperar a que el usuario decida
+        
+        resultado = dialog.get_resultado()
+        
+        if resultado == 'sobrescribir':
+            # Eliminar archivos existentes
+            self.log(f"\nEliminando {len(validacion['existentes'])} archivo(s) existente(s)...")
+            
+            eliminacion = FileValidator.eliminar_archivos(validacion['existentes'])
+            
+            if eliminacion['errores']:
+                self.log(f"❌ Errores al eliminar archivos:")
+                for error in eliminacion['errores']:
+                    self.log(f"   • {error}")
+                
+                messagebox.showerror(
+                    "Error",
+                    f"No se pudieron eliminar algunos archivos.\n"
+                    f"Verifica que no estén abiertos en otra aplicación."
+                )
+                return
+            
+            self.log(f"✅ {eliminacion['eliminados']} archivo(s) eliminado(s)")
+            self.log(f"🚀 Iniciando extracción completa...")
+            
+            # Extraer todos los municipios
+            self._iniciar_extraccion(municipios_seleccionados)
+            
+        elif resultado == 'omitir':
+            # Extraer solo los nuevos
+            if validacion['nuevos']:
+                self.log(f"\n⏭️ Omitiendo {len(validacion['existentes'])} archivo(s) existente(s)")
+                self.log(f"Extrayendo {len(validacion['nuevos'])} municipio(s) nuevo(s)...")
+                self._iniciar_extraccion(validacion['nuevos'])
+            else:
+                self.log(f"\nNo hay archivos nuevos para extraer")
+                messagebox.showinfo(
+                    "Sin Archivos Nuevos",
+                    "Todos los archivos ya existen.\n"
+                    "No hay nada nuevo que extraer."
+                )
+        
+        elif resultado == 'cancelar':
+            self.log(f"\n❌ Extracción cancelada por el usuario")
+
+
+
+    def _iniciar_extraccion(self, municipios):
+        """
+        Prepara y ejecuta la extracción en background
+        
+        Args:
+            municipios: Lista de municipios a procesar
+        """
         # Deshabilitar botón durante la ejecución
         self.boton_buscar.configure(state="disabled", text="⏳ Procesando...")
         self.log(f"\n{'='*60}")
-        self.log(f"Iniciando extracción de {len(municipios_seleccionados)} municipio(s)")
+        self.log(f"Iniciando extracción de {len(municipios)} municipio(s)")
         self.log(f"{'='*60}\n")
         
         # Ejecutar en thread separado para no congelar la UI
         thread = threading.Thread(
             target=self._ejecutar_extraccion,
-            args=(municipios_seleccionados,),
+            args=(municipios,),
             daemon=True
         )
         thread.start()
-
+    
     def _ejecutar_extraccion(self, municipios):
         """Ejecuta la extracción en background"""
         try:
@@ -168,21 +249,10 @@ class App(ctk.CTk):
             
             # Crear extractor y ejecutar
             extractor = ExtractorDatosEmpresa()
-            exito = extractor.ejecutar_proceso_completo(municipios, URL_LOGIN)
+            resultado = extractor.ejecutar_proceso_completo(municipios, URL_LOGIN)
             
-            # Mostrar resultado final
-            if exito:
-                self.log(f"\nProceso completado exitosamente")
-                messagebox.showinfo(
-                    "Éxito", 
-                    f"Extracción completada para {len(municipios)} municipio(s)"
-                )
-            else:
-                self.log(f"\nEl proceso finalizó con errores")
-                messagebox.showerror(
-                    "Error", 
-                    "Hubo errores durante la extracción. Revisa los logs."
-                )
+            # Procesar resultado detallado
+            self._mostrar_resultado(resultado, len(municipios))
                 
         except Exception as e:
             self.log(f"\nError crítico: {str(e)}")
@@ -191,7 +261,58 @@ class App(ctk.CTk):
         finally:
             # Re-habilitar botón
             self.boton_buscar.configure(state="normal", text="🚀 Iniciar Extracción")
-
+    
+    def _mostrar_resultado(self, resultado, total_municipios):
+        """
+        Muestra un resumen detallado del resultado de la extracción
+        
+        Args:
+            resultado: Diccionario con los resultados
+            total_municipios: Total de municipios solicitados
+        """
+        self.log(f"\n{'='*60}")
+        self.log("RESUMEN DE LA EXTRACCIÓN")
+        self.log(f"{'='*60}")
+        
+        # Municipios procesados exitosamente
+        procesados = resultado["municipios_procesados"]
+        self.log(f"Procesados exitosamente: {procesados}/{total_municipios}")
+        
+        # Municipios omitidos
+        if resultado["municipios_omitidos"]:
+            self.log(f"\nMunicipios omitidos/sin datos ({len(resultado['municipios_omitidos'])}):")
+            for municipio in resultado["municipios_omitidos"]:
+                self.log(f"   • {municipio}")
+        
+        # Errores
+        if resultado["errores"]:
+            self.log(f"\nErrores encontrados ({len(resultado['errores'])}):")
+            for error in resultado["errores"]:
+                self.log(f"   • {error}")
+        
+        self.log(f"\n{'='*60}")
+        
+        # Mensaje final
+        if resultado["exitoso"] and procesados > 0:
+            mensaje = f"Extracción completada exitosamente:\n\n"
+            mensaje += f"{procesados} archivo(s) creado(s)\n"
+            
+            if resultado["municipios_omitidos"]:
+                mensaje += f"⚠️ {len(resultado['municipios_omitidos'])} municipio(s) sin datos\n"
+            
+            messagebox.showinfo("Proceso Completado", mensaje)
+        elif procesados == 0:
+            messagebox.showwarning(
+                "Sin Datos",
+                "No se crearon archivos nuevos.\n"
+                "Revisa los logs para más detalles."
+            )
+        else:
+            messagebox.showerror(
+                "Error en la Extracción",
+                f"El proceso finalizó con errores.\n\n"
+                f"Revisa los logs para más detalles."
+            )
 
 if __name__ == "__main__":
     app = App()
