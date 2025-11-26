@@ -28,6 +28,15 @@ class AuthenticationModule:
             bool: True si el login fue exitoso
         """
         try:
+            # Obtener Credenciales desde settings
+            username, password = settings.get_credentials()
+
+            # Verificar si las credenciales existen
+            if not username or not password:
+                logging.error("No hay credeciales configuradas")
+                print("No hay credeciales configuradas")
+                return False
+
             self.driver.get(url_login)
             logging.info("Abriendo página de login...")
             
@@ -38,7 +47,7 @@ class AuthenticationModule:
             self._seleccionar_tipo_usuario()
             
             # Completar credenciales
-            self._completar_credenciales()
+            self._completar_credenciales(username, password)
             
             # Hacer click en entrar
             self._hacer_click_entrar()
@@ -62,19 +71,25 @@ class AuthenticationModule:
         )
         radio_persona.click()
     
-    def _completar_credenciales(self):
-        """Completa los campos de usuario y contraseña"""
+    def _completar_credenciales(self, username, password):
+        """
+        Completa los campos de usuario y contraseña
+        
+        Args:
+            username: Usuario a ingresar
+            password: Contraseña a ingresar
+        """
         # Campo usuario
         campo_usuario = self.wait.until(
             EC.presence_of_element_located((By.ID, CAMPO_USUARIO_SELECTOR))
         )
         campo_usuario.clear()
-        campo_usuario.send_keys(settings.USUARIO_LOGIN)
+        campo_usuario.send_keys(settings.username)
         
         # Campo contraseña
         campo_contrasena = self.driver.find_element(By.ID, CAMPO_CONTRASENA_SELECTOR)
         campo_contrasena.clear()
-        campo_contrasena.send_keys(settings.CONTRASENA_LOGIN)
+        campo_contrasena.send_keys(settings.password)
     
     def _hacer_click_entrar(self):
         """Hace click en el botón de entrar"""
