@@ -14,7 +14,7 @@ a = Analysis(
         ('urls/*.py', 'urls'),
         
         # Si tienes otros recursos (iconos, imágenes, etc)
-        # ('resources/*', 'resources'),
+        #('resources/*', 'resources'),
     ],
     hiddenimports=[
         # GUI - CustomTkinter
