@@ -27,7 +27,7 @@ class ExportHandler:
             bool: True si la creación fue exitosa
         """
 
-        excel_dir = f"REPORTE_EMPRESAS - {datetime.now().strftime('%Y-%m-%d')}"
+        excel_dir = f"REPORTE_EMPRESAS - {datetime.now().strftime('%Y-%m')}"
         os.makedirs(excel_dir, exist_ok=True)
 
         try:
