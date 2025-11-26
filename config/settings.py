@@ -2,18 +2,60 @@
 Configuración general de la aplicación
 """
 import os
-from dotenv import load_dotenv
+# Variable global para el gestor de credenciales
+_credentials_manager = None
 
-# Cargar variables de entorno
-load_dotenv()
 
-# Credenciales
-USUARIO_LOGIN = os.getenv('USUARIO_LOGIN')
-CONTRASENA_LOGIN = os.getenv('CONTRASENA_LOGIN')
+def set_credentials_manager(manager):
+    """
+    Configura el gestor de credenciales para toda la aplicación
+    
+    Args:
+        manager: Instancia de CredentialsManager
+    """
+    global _credentials_manager
+    _credentials_manager = manager
+    print("CredentialsManager configurado")
 
-# Validar credenciales
-if not USUARIO_LOGIN or not CONTRASENA_LOGIN:
-    raise ValueError("Error: Las credenciales de login no están configuradas en el archivo .env")
+
+def get_credentials():
+    """
+    Obtiene las credenciales desde el CredentialsManager
+    
+    Returns:
+        tuple: (username, password) o (None, None) si no están configuradas
+    """
+    if _credentials_manager is None:
+        print("CredentialsManager no está inicializado")
+        return None, None
+    
+    username, password = _credentials_manager.load_credentials()
+    
+    if username and password:
+        print(f"Credenciales cargadas para: {username}")
+        return username, password
+    else:
+        print("No hay credenciales disponibles")
+        return None, None
+
+
+def get_usuario_login():
+    """Obtiene solo el usuario"""
+    username, _ = get_credentials()
+    return username
+
+
+def get_contrasena_login():
+    """Obtiene solo la contraseña"""
+    _, password = get_credentials()
+    return password
+
+
+def credentials_configured():
+    """Verifica si las credenciales están configuradas"""
+    username, password = get_credentials()
+    return username is not None and password is not None
+
 
 # Configuración de Selenium
 IMPLICIT_WAIT = 5
