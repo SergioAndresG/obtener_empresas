@@ -153,9 +153,28 @@ class ExtractorDatosEmpresa:
         """
         datos = self.extraction_module.obtener_datos()
         
-        if datos:
-            nombre_archivo = generar_nombre_archivo(municipio)
-            ExportHandler.crear_archivo_excel(datos, nombre_archivo)
-        else:
+        if not datos:
             print(f"No se extrajeron datos para: {municipio}")
             logging.info(f"No se extrajeron datos para: {municipio}")
+            self.resultados["municipios_omitidos"].append(municipio)
+            return
+        
+        # Intentar crear el archivo
+        nombre_archivo = generar_nombre_archivo(municipio)
+        resultado = ExportHandler.crear_archivo_excel(datos, nombre_archivo)
+        
+        # Procesar resultado (ahora SIEMPRE es un dict)
+        if resultado["status"] == "ok":
+            print(f"Archivo creado exitosamente para: {municipio}")
+            logging.info(f"Archivo creado: {resultado['path']}")
+            self.resultados["municipios_procesados"] += 1
+            
+        elif resultado["status"] == "nodata":
+            print(f"No hay datos para exportar: {municipio}")
+            logging.warning(f"Sin datos para {municipio}")
+            self.resultados["municipios_omitidos"].append(municipio)
+            
+        elif resultado["status"] == "error":
+            print(f"Error al crear archivo para {municipio}: {resultado['message']}")
+            logging.error(f"Error exportando {municipio}: {resultado['message']}")
+            self.resultados["errores"].append(f"{municipio}: {resultado['message']}")
