@@ -24,27 +24,27 @@ class ExportHandler:
             nombre_archivo: Nombre del archivo a crear
             
         Returns:
-            bool: True si la creación fue exitosa
+            dict: Siempre retorna un diccionario con el resultado
+                {"status": "ok"|"nodata"|"error", "path": str, "message": str}
         """
-
+        
         excel_dir = f"REPORTE_EMPRESAS - {datetime.now().strftime('%Y-%m')}"
         os.makedirs(excel_dir, exist_ok=True)
 
+        ruta_archivo = os.path.join(excel_dir, nombre_archivo)
+        
         try:
+            # Validar que hay datos
             if not datos:
-                logging.error("No hay datos para exportar")
-                return False
+                return {
+                    "status": "nodata",
+                    "path": None,
+                    "message": "No hay datos para exportar"
+                }
             
             # Crear DataFrame
             df = pd.DataFrame(datos)
 
-            ruta_archivo = os.path.join(excel_dir, nombre_archivo)
-
-            if os.path.exists(ruta_archivo):
-                logging.warning(f"El reporte ya existe: {ruta_archivo}")
-                print(f"El reporte para ese municipio ya existe {ruta_archivo}")
-                return False
-            
             # Crear archivo Excel
             with pd.ExcelWriter(ruta_archivo, engine='openpyxl') as writer:
                 df.to_excel(writer, sheet_name='Datos_Empresas', index=False)
@@ -52,15 +52,20 @@ class ExportHandler:
             # Aplicar formato
             ExportHandler._aplicar_formato_excel(ruta_archivo)
             
-            logging.info(f"Archivo Excel creado exitosamente: {ruta_archivo}")
-            print(f"Archivo Excel creado: {nombre_archivo}")
-            print(f"Total de registros: {len(datos)}")
-            
-            return True
+            return {
+                "status": "ok",
+                "path": ruta_archivo,
+                "message": "Archivo creado exitosamente"
+            }
             
         except Exception as e:
             logging.error(f"Error creando archivo Excel: {str(e)}")
-            return False
+            return {
+                "status": "error",
+                "path": None,
+                "message": str(e)
+            }
+    
     
     @staticmethod
     def _aplicar_formato_excel(nombre_archivo):
