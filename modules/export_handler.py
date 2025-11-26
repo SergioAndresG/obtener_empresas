@@ -39,6 +39,11 @@ class ExportHandler:
             df = pd.DataFrame(datos)
 
             ruta_archivo = os.path.join(excel_dir, nombre_archivo)
+
+            if os.path.exists(ruta_archivo):
+                logging.warning(f"El reporte ya existe: {ruta_archivo}")
+                print(f"El reporte para ese municipio ya existe {ruta_archivo}")
+                return False
             
             # Crear archivo Excel
             with pd.ExcelWriter(ruta_archivo, engine='openpyxl') as writer:
