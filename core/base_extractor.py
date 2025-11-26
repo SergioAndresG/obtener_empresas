@@ -28,6 +28,14 @@ class ExtractorDatosEmpresa:
         self.auth_module = None
         self.navigation_module = None
         self.extraction_module = None
+        
+        self.resultados = {
+            "exitoso": True,
+            "municipios_procesados": 0,
+            "municipios_omitidos": [],
+            "archivos_existentes": [],
+            "errores": []
+        }
     
     def inicializar_modulos(self):
         """Inicializa todos los módulos necesarios"""
