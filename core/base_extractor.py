@@ -47,38 +47,46 @@ class ExtractorDatosEmpresa:
             url_login: URL de la página de login
             
         Returns:
-            bool: True si el proceso fue exitoso
+            dict: SIEMPRE retorna un diccionario con resultados detallados
         """
         try:
             print("Iniciando proceso de extracción de datos...")
             
             # Configurar driver
             if not self.driver_manager.configurar_driver():
-                return False
+                self.resultados["exitoso"] = False
+                self.resultados["errores"].append("Error al configurar el driver")
+                return self.resultados  # ← Retorna dict
             
             # Inicializar módulos
             self.inicializar_modulos()
             
             # Realizar login
             if not self.auth_module.realizar_login(url_login):
-                return False
+                self.resultados["exitoso"] = False
+                self.resultados["errores"].append("Error en autenticación")
+                return self.resultados  # ← Retorna dict
             
             # Navegar a empresas (primera vez)
             if not self.navigation_module.navegar_a_empresas():
-                return False
+                self.resultados["exitoso"] = False
+                self.resultados["errores"].append("Error al navegar a empresas")
+                return self.resultados  # ← Retorna dict
             
             # Procesar cada municipio
             for municipio in municipios:
                 self._procesar_municipio(municipio)
             
             print("Proceso completado exitosamente!")
-            return True
+            return self.resultados  # ← Retorna dict
             
         except Exception as e:
             logging.error(f"Error en proceso completo: {str(e)}")
             print(f"Error en el proceso: {str(e)}")
             traceback.print_exc()
-            return False
+            self.resultados["exitoso"] = False
+            self.resultados["errores"].append(str(e))
+            return self.resultados  # ← Retorna dict
             
         finally:
             self.driver_manager.cerrar_driver()
