@@ -16,7 +16,7 @@ def configurar_logging():
     log_dir = "Logs"
     os.makedirs(log_dir, exist_ok=True)
 
-    log_filename = os.path.join(log_dir, f"reporte_log_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}")
+    log_filename = os.path.join(log_dir, f"reporte_log_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log")
     
     logging.basicConfig(
         filename=log_filename,
