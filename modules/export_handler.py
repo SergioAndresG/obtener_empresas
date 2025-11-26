@@ -41,13 +41,13 @@ class ExportHandler:
             ruta_archivo = os.path.join(excel_dir, nombre_archivo)
             
             # Crear archivo Excel
-            with pd.ExcelWriter(nombre_archivo, engine='openpyxl') as writer:
+            with pd.ExcelWriter(ruta_archivo, engine='openpyxl') as writer:
                 df.to_excel(writer, sheet_name='Datos_Empresas', index=False)
             
             # Aplicar formato
             ExportHandler._aplicar_formato_excel(ruta_archivo)
             
-            logging.info(f"Archivo Excel creado exitosamente: {nombre_archivo}")
+            logging.info(f"Archivo Excel creado exitosamente: {ruta_archivo}")
             print(f"Archivo Excel creado: {nombre_archivo}")
             print(f"Total de registros: {len(datos)}")
             
