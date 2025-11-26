@@ -6,7 +6,7 @@ import os
 import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
-import datetime
+from datetime import datetime
 
 from config import settings
 
