@@ -13,7 +13,7 @@ def generar_nombre_archivo(municipio=None):
     Returns:
         str: Nombre del archivo generado
     """
-    timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    timestamp = datetime.now().strftime('%Y-%m')
     
     if municipio:
         return f"datos_empresas_{municipio}_{timestamp}.xlsx"
