@@ -30,7 +30,6 @@ a = Analysis(
         # HTTP
         'httpcore',
         
-        # ✅ NUMPY - Pandas lo necesita
         'numpy',
         'numpy.core',
         'numpy.core._multiarray_umath',
