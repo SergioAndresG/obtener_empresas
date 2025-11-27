@@ -9,3 +9,7 @@
 # Archivos de cache de python
 __pycache__/
 *.pyc
+
+# Archivos que construyen el aplicativo .exe
+/dist
+/build
