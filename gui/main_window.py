@@ -9,12 +9,13 @@ from config.logging_config import configurar_logging
 from config.municipalities import municipios_cobertura
 from .dialogs.conflict_dialog import ConflictDialog
 from utils.validator_file import FileValidator
+from config import settings
 # ========= LIBRERIAS LOCALES QUE MANEJAN LAS CREDENCIALES ==========
 from utils.credentials import CredentialsManager
 from .dialogs.credentials_dialog import CredentialsDialog
 
 class App(ctk.CTk):
-    def __init__(self):
+    def __init__(self, credentials_manager = None):
         super().__init__()
 
         # --- Configuración de la Ventana Principal ---
@@ -26,11 +27,11 @@ class App(ctk.CTk):
         self.grid_columnconfigure(1, weight=2)
         self.grid_rowconfigure(1, weight=1)
 
-        # Inicializar gestor de credenciales
-        self.credentials_manager = CredentialsManager()
-
-        # Verificar credenciales al inicio
-        self._verificar_credenciales_iniciales()
+        if credentials_manager:
+            self.credentials_manager = credentials_manager
+        else:
+            self.credentials_manager = CredentialsManager()
+            settings.set_credentials_manager(self.credentials_manager)
 
         # Crear interfaz
         self._crear_interfaz()
