@@ -84,12 +84,12 @@ class AuthenticationModule:
             EC.presence_of_element_located((By.ID, CAMPO_USUARIO_SELECTOR))
         )
         campo_usuario.clear()
-        campo_usuario.send_keys(settings.username)
+        campo_usuario.send_keys(username)
         
         # Campo contraseña
         campo_contrasena = self.driver.find_element(By.ID, CAMPO_CONTRASENA_SELECTOR)
         campo_contrasena.clear()
-        campo_contrasena.send_keys(settings.password)
+        campo_contrasena.send_keys(password)
     
     def _hacer_click_entrar(self):
         """Hace click en el botón de entrar"""
