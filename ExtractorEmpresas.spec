@@ -7,14 +7,8 @@ a = Analysis(
     pathex=[],
     binaries=[],
     datas=[
-        # Archivos de configuración
-        ('config/*.py', 'config'),
-        
-        # URLs
-        ('urls/*.py', 'urls'),
-        
-        # Si tienes otros recursos (iconos, imágenes, etc)
-        #('resources/*', 'resources'),
+        ('config', 'config'),
+        ('urls', 'urls'),
     ],
     hiddenimports=[
         # GUI - CustomTkinter
@@ -36,8 +30,15 @@ a = Analysis(
         # HTTP
         'httpcore',
         
+        # ✅ NUMPY - Pandas lo necesita
+        'numpy',
+        'numpy.core',
+        'numpy.core._multiarray_umath',
+        
         # Excel y Pandas
         'pandas',
+        'pandas._libs',
+        'pandas._libs.tslibs',
         'openpyxl',
         'openpyxl.styles',
         'openpyxl.utils',
@@ -57,12 +58,16 @@ a = Analysis(
         'utils.selectors',
         'utils.helpers',
         'utils.file_validator',
+        'utils.credentials_manager',
         'gui',
         'gui.main_window',
         'gui.dialogs',
         'gui.dialogs.conflict_dialog',
+        'gui.dialogs.credentials_dialog',
         
         # Sistema
+        'json',
+        'base64',
         'logging',
         'datetime',
         'os',
@@ -73,10 +78,8 @@ a = Analysis(
     hooksconfig={},
     runtime_hooks=[],
     excludes=[
-        # Excluir librerías pesadas que no usas
         'matplotlib',
         'scipy',
-        'numpy',  # A menos que pandas lo necesite
         'PIL',
         'test',
         'unittest',
@@ -101,10 +104,11 @@ exe = EXE(
     upx=True,
     upx_exclude=[],
     runtime_tmpdir=None,
-    console=False,  # False = No muestra ventana de consola (para GUI)
+    console=False,  # False = No muestra ventana de consola
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    # icon='icon.ico',  # Descomenta si tienes un icono
 )
