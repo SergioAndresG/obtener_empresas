@@ -337,8 +337,6 @@ Si el proceso se interrumpe:
 </details>
 
 <details>
-
-<details>
 <summary><strong>¿Los datos extraídos son exactos?</strong></summary>
 
 **Sí.** La aplicación extrae los datos exactamente como aparecen en la plataforma APE. Sin embargo:
