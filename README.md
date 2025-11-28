@@ -501,7 +501,7 @@ La aplicación sigue una arquitectura modular de **separación de responsabilida
 
 ```
 ┌─────────────────────────────────────────────────┐
-│              GUI Layer (PyQt)                   │
+│       GUI Layer (CustomTkinter)                 │
 │         Interfaz de Usuario                     │
 └─────────────────┬───────────────────────────────┘
                   │
