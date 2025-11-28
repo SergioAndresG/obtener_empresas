@@ -7,7 +7,6 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/Selenium-4.x-43B02A?logo=selenium&logoColor=white" alt="Selenium" />
-  <img src="https://img.shields.io/badge/PyQt-GUI-41CD52?logo=qt&logoColor=white" alt="PyQt" />
   <img src="https://img.shields.io/badge/Pandas-Data-150458?logo=pandas&logoColor=white" alt="Pandas" />
 </p>
 
