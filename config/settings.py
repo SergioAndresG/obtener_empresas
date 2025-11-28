@@ -2,9 +2,10 @@
 Configuración general de la aplicación
 """
 import os
+from datetime import datetime
 # Variable global para el gestor de credenciales
 _credentials_manager = None
-
+REPORTS_BASE_DIR = "Reportes"
 
 def set_credentials_manager(manager):
     """
@@ -52,6 +53,13 @@ def credentials_configured():
     """Verifica si las credenciales están configuradas"""
     username, password = get_credentials()
     return username is not None and password is not None
+
+def get_reports_dir():
+    """Retorna el directorio de reportes del mes actual"""
+    subdir = f"REPORTE_EMPRESAS - {datetime.now().strftime('%Y-%m')}"
+    full_path = os.path.join(REPORTS_BASE_DIR, subdir)
+    os.makedirs(full_path, exist_ok=True)
+    return full_path
 
 
 # Configuración de Selenium
