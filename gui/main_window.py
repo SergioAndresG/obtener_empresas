@@ -173,7 +173,6 @@ class App(ctk.CTk):
         """Crea toda la interfaz gráfica principal (ROW 1)"""
         
         # --- Frame Izquierdo: Selección de Municipios ---
-        # ✅ IMPORTANTE: row=1 (no row=0)
         self.frame_seleccion = ctk.CTkFrame(self)
         self.frame_seleccion.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
         
@@ -339,7 +338,6 @@ class App(ctk.CTk):
         
         elif resultado == 'cancelar':
             self.log(f"\n❌ Extracción cancelada por el usuario")
-
 
 
     def _iniciar_extraccion(self, municipios):
