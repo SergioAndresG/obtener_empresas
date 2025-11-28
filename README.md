@@ -820,33 +820,7 @@ Fix: corrección de bug
 Update: actualización de funcionalidad existente
 Refactor: refactorización de código
 Docs: cambios en documentación
-Test: adición o modificación de tests
 ```
-
-```
-
-### Ideas para Contribuir
-
-🚀 **Funcionalidades nuevas:**
-- [ ] Exportación a otros formatos (CSV, JSON, PDF)
-- [ ] Filtros avanzados (sector económico, tamaño de empresa)
-- [ ] Gráficos estadísticos en los reportes
-- [ ] Programación de ejecuciones automáticas
-- [ ] Notificaciones por email al completar extracción
-
-🐛 **Mejoras:**
-- [ ] Soporte para otros navegadores (Firefox, Edge)
-- [ ] Reintentos automáticos en caso de errores de red
-- [ ] Modo "headless" (sin ventana del navegador visible)
-- [ ] Caché de resultados para evitar consultas duplicadas
-- [ ] Interfaz en otros idiomas (internacionalización)
-
-📚 **Documentación:**
-- [ ] Video tutoriales
-- [ ] Manual de usuario en PDF
-- [ ] Diagramas de arquitectura
-- [ ] Guía de solución de problemas extendida
----
 
 ## 📧 Contacto y Soporte
 
