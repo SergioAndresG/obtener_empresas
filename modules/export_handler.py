@@ -27,12 +27,9 @@ class ExportHandler:
             dict: Siempre retorna un diccionario con el resultado
                 {"status": "ok"|"nodata"|"error", "path": str, "message": str}
         """
-        
-        excel_dir = f"REPORTE_EMPRESAS - {datetime.now().strftime('%Y-%m')}"
-        os.makedirs(excel_dir, exist_ok=True)
+        reports_dir = settings.get_reports_dir()
+        ruta_archivo = os.path.join(reports_dir, nombre_archivo)
 
-        ruta_archivo = os.path.join(excel_dir, nombre_archivo)
-        
         try:
             # Validar que hay datos
             if not datos:
