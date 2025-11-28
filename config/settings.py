@@ -15,7 +15,6 @@ def set_credentials_manager(manager):
     """
     global _credentials_manager
     _credentials_manager = manager
-    print("CredentialsManager configurado")
 
 
 def get_credentials():
@@ -32,10 +31,8 @@ def get_credentials():
     username, password = _credentials_manager.load_credentials()
     
     if username and password:
-        print(f"Credenciales cargadas para: {username}")
         return username, password
     else:
-        print("No hay credenciales disponibles")
         return None, None
 
 
