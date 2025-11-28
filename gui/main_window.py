@@ -20,7 +20,7 @@ class App(ctk.CTk):
 
         # --- Configuración de la Ventana Principal ---
         self.title("Extractor de Empresas - SENA")
-        self.geometry("800x600")
+        self.geometry("1050x650")
 
         # Configurar grid
         self.grid_columnconfigure(0, weight=1)
@@ -32,94 +32,10 @@ class App(ctk.CTk):
         else:
             self.credentials_manager = CredentialsManager()
             settings.set_credentials_manager(self.credentials_manager)
-
+        
+        self._crear_header()
         # Crear interfaz
         self._crear_interfaz()
-
-        # --- Frame Izquierdo: Selección de Municipios ---
-        self.frame_seleccion = ctk.CTkFrame(self)
-        self.frame_seleccion.grid(row=0, column=0, rowspan=2, padx=10, pady=10, sticky="nsew")
-        
-        # Título
-        ctk.CTkLabel(
-            self.frame_seleccion, 
-            text="Seleccionar Municipios", 
-            font=("Arial", 16, "bold")
-        ).pack(pady=10)
-        
-        # Botones de selección rápida
-        frame_botones_rapidos = ctk.CTkFrame(self.frame_seleccion)
-        frame_botones_rapidos.pack(fill="x", padx=10, pady=5)
-        
-        ctk.CTkButton(
-            frame_botones_rapidos, 
-            text="✓ Todos", 
-            command=self.seleccionar_todos,
-            width=70
-        ).pack(side="left", padx=2)
-        
-        ctk.CTkButton(
-            frame_botones_rapidos, 
-            text="✗ Ninguno", 
-            command=self.deseleccionar_todos,
-            width=70
-        ).pack(side="left", padx=2)
-        
-        # Frame scrollable para checkboxes
-        self.scroll_frame = ctk.CTkScrollableFrame(self.frame_seleccion, height=400)
-        self.scroll_frame.pack(fill="both", expand=True, padx=10, pady=10)
-        
-        # Crear checkboxes para cada municipio
-        self.checkboxes = {}
-        for municipio in municipios_cobertura:
-            var = ctk.BooleanVar(value=True)  # Todos marcados por defecto
-            checkbox = ctk.CTkCheckBox(
-                self.scroll_frame, 
-                text=municipio, 
-                variable=var,
-                font=("Arial", 12)
-            )
-            checkbox.pack(anchor="w", pady=2, padx=5)
-            self.checkboxes[municipio] = var
-        
-        # --- Frame Derecho: Controles y Resultados ---
-        frame_derecho = ctk.CTkFrame(self)
-        frame_derecho.grid(row=0, column=1, rowspan=2, padx=10, pady=10, sticky="nsew")
-        frame_derecho.grid_rowconfigure(2, weight=1)
-        frame_derecho.grid_columnconfigure(0, weight=1)
-        
-        # Contador de seleccionados
-        self.label_contador = ctk.CTkLabel(
-            frame_derecho,
-            text=f"Municipios seleccionados: {len(municipios_cobertura)}",
-            font=("Arial", 12)
-        )
-        self.label_contador.grid(row=0, column=0, pady=10, sticky="n")
-        
-        # Actualizar contador cuando cambie selección
-        for var in self.checkboxes.values():
-            var.trace_add("write", lambda *args: self.actualizar_contador())
-        
-        # Botón de inicio
-        self.boton_buscar = ctk.CTkButton(
-            frame_derecho, 
-            text="🚀 Iniciar Extracción",
-            command=self.iniciar_busqueda,
-            height=40,
-            font=("Arial", 14, "bold"),
-            fg_color="#2ecc71",
-            hover_color="#27ae60"
-        )
-        self.boton_buscar.grid(row=1, column=0, pady=20, padx=20)
-        
-        # Caja de texto para logs
-        self.textbox_resultados = ctk.CTkTextbox(
-            frame_derecho, 
-            state="disabled",
-            font=("Consolas", 10),
-            height=100
-        )
-        self.textbox_resultados.grid(row=2, column=0, sticky="nsew", padx=10, pady=10)
 
     def actualizar_contador(self):
         """Actualiza el contador de municipios seleccionados"""
@@ -185,13 +101,81 @@ class App(ctk.CTk):
             )
             if respuesta:
                 self.destroy()
+
+    def _crear_header(self):
+        """Crea el header con información de credenciales"""
+        # Frame del header que ocupa ambas columnas en ROW 0
+        header_frame = ctk.CTkFrame(self, height=60, fg_color="#1a1a1a")
+        header_frame.grid(row=0, column=0, columnspan=2, sticky="ew", padx=10, pady=(10, 0))
+        header_frame.grid_columnconfigure(1, weight=1)
+        
+        # Logo/Título a la izquierda
+        title_label = ctk.CTkLabel(
+            header_frame,
+            text="🏢 Extractor de Empresas",
+            font=ctk.CTkFont(size=16, weight="bold"),
+            text_color="#3498db"
+        )
+        title_label.grid(row=0, column=0, padx=15, pady=10, sticky="w")
+        
+        # Estado de credenciales en el centro
+        self.credentials_status = ctk.CTkLabel(
+            header_frame,
+            text=self._get_credentials_status(),
+            font=ctk.CTkFont(size=12),
+            anchor="e"
+        )
+        self.credentials_status.grid(row=0, column=1, padx=15, pady=10, sticky="e")
+        
+        # Botón de configuración a la derecha
+        self.config_credentials_button = ctk.CTkButton(
+            header_frame,
+            text="⚙️ Configurar Credenciales",
+            command=self.open_credentials_dialog,
+            width=180,
+            height=35,
+            fg_color="#1f538d",
+            hover_color="#133860",
+            font=ctk.CTkFont(size=12)
+        )
+        self.config_credentials_button.grid(row=0, column=2, padx=15, pady=10)
+    
+    def _get_credentials_status(self):
+        """Obtiene el texto del estado actual de las credenciales"""
+        if self.credentials_manager.credentials_exist():
+            username, _ = self.credentials_manager.load_credentials()
+            if username:
+                return f"Usuario: {username[:20]}..." if len(username) > 20 else f"Usuario: {username}"
+            else:
+                return "Credenciales inválidas"
+        else:
+            return "Sin credenciales configuradas"
+    
+    def _update_credentials_status(self):
+        """Actualiza el estado de las credenciales en el header"""
+        self.credentials_status.configure(text=self._get_credentials_status())
+    
+    def open_credentials_dialog(self):
+        """Abre el diálogo de configuración de credenciales"""
+        dialog = CredentialsDialog(self, self.credentials_manager)
+        self.wait_window(dialog)
+        
+        # Actualizar el estado después de cerrar el diálogo
+        if dialog.result:
+            self._update_credentials_status()
+            messagebox.showinfo(
+                "Credenciales Actualizadas",
+                "Las credenciales se han actualizado correctamente.",
+                parent=self
+            )
     
     def _crear_interfaz(self):
-        """Crea toda la interfaz gráfica"""
+        """Crea toda la interfaz gráfica principal (ROW 1)"""
         
         # --- Frame Izquierdo: Selección de Municipios ---
+        # ✅ IMPORTANTE: row=1 (no row=0)
         self.frame_seleccion = ctk.CTkFrame(self)
-        self.frame_seleccion.grid(row=0, column=0, rowspan=2, padx=10, pady=10, sticky="nsew")
+        self.frame_seleccion.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
         
         # Título
         ctk.CTkLabel(
@@ -237,8 +221,8 @@ class App(ctk.CTk):
         
         # --- Frame Derecho: Controles y Resultados ---
         frame_derecho = ctk.CTkFrame(self)
-        frame_derecho.grid(row=0, column=1, rowspan=2, padx=10, pady=10, sticky="nsew")
-        frame_derecho.grid_rowconfigure(3, weight=1)
+        frame_derecho.grid(row=1, column=1, padx=10, pady=10, sticky="nsew")
+        frame_derecho.grid_rowconfigure(2, weight=1) 
         frame_derecho.grid_columnconfigure(0, weight=1)
         
         # Contador de seleccionados
@@ -253,17 +237,6 @@ class App(ctk.CTk):
         for var in self.checkboxes.values():
             var.trace_add("write", lambda *args: self.actualizar_contador())
         
-        # ✅ Botón de configuración de credenciales
-        ctk.CTkButton(
-            frame_derecho,
-            text="⚙️ Configurar Credenciales",
-            command=self._mostrar_dialogo_credenciales,
-            fg_color="#5D5D5D",
-            hover_color="#4A4A4A",
-            height=30,
-            width=180
-        ).grid(row=1, column=0, pady=(0, 10))
-        
         # Botón de inicio
         self.boton_buscar = ctk.CTkButton(
             frame_derecho, 
@@ -274,7 +247,7 @@ class App(ctk.CTk):
             fg_color="#2ecc71",
             hover_color="#27ae60"
         )
-        self.boton_buscar.grid(row=2, column=0, pady=(10, 20), padx=20)
+        self.boton_buscar.grid(row=1, column=0, pady=(10, 20), padx=20)
         
         # Caja de texto para logs
         self.textbox_resultados = ctk.CTkTextbox(
@@ -282,7 +255,7 @@ class App(ctk.CTk):
             state="disabled",
             font=("Consolas", 10)
         )
-        self.textbox_resultados.grid(row=3, column=0, sticky="nsew", padx=10, pady=10)
+        self.textbox_resultados.grid(row=2, column=0, sticky="nsew", padx=10, pady=10)
 
     def iniciar_busqueda(self):
         """Inicia el proceso de extracción con validación previa"""
