@@ -24,7 +24,10 @@ class FileValidator:
                 'rutas_existentes': {municipio: ruta_completa}
             }
         """
-        excel_dir = f"REPORTE_EMPRESAS - {datetime.now().strftime('%Y-%m')}"
+
+        reports_dir = "Reportes"
+        excel_subdir = f"REPORTE_EMPRESAS - {datetime.now().strftime('%Y-%m')}"
+        full_dir_path = os.path.join(reports_dir, excel_subdir)
         
         resultado = {
             'existentes': [],
@@ -34,7 +37,7 @@ class FileValidator:
         
         for municipio in municipios:
             nombre_archivo = generar_nombre_archivo(municipio)
-            ruta_completa = os.path.join(excel_dir, nombre_archivo)
+            ruta_completa = os.path.join(full_dir_path, nombre_archivo)
             
             if os.path.exists(ruta_completa):
                 resultado['existentes'].append(municipio)
@@ -55,7 +58,9 @@ class FileValidator:
         Returns:
             dict: {'eliminados': int, 'errores': [lista de errores]}
         """
-        excel_dir = f"REPORTE_EMPRESAS - {datetime.now().strftime('%Y-%m')}"
+        reports_dir = "Reportes"
+        excel_subdir = f"REPORTE_EMPRESAS - {datetime.now().strftime('%Y-%m')}"
+        full_dir_path = os.path.join(reports_dir, excel_subdir)
         
         resultado = {
             'eliminados': 0,
@@ -65,7 +70,7 @@ class FileValidator:
         for municipio in municipios:
             try:
                 nombre_archivo = generar_nombre_archivo(municipio)
-                ruta_completa = os.path.join(excel_dir, nombre_archivo)
+                ruta_completa = os.path.join(full_dir_path, nombre_archivo)
                 
                 if os.path.exists(ruta_completa):
                     os.remove(ruta_completa)
