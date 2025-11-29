@@ -854,7 +854,7 @@ La aplicación sigue una arquitectura modular de **separación de responsabilida
 
 ---
 
-## 👨‍💻 Para Desarrolladores
+##  Para Desarrolladores 👨‍💻
 
 ### Configuración del Entorno de Desarrollo
 
