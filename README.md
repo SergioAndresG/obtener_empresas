@@ -844,10 +844,6 @@ Desde su implementación:
 ---
 
 <p align="center">
-  <strong>Desarrollado con ❤️ para optimizar procesos administrativos del SENA</strong>
-</p>
-
-<p align="center">
   <sub>Herramienta de extracción automatizada que convierte horas de trabajo manual en minutos</sub>
 </p>
 
