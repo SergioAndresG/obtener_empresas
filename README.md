@@ -18,7 +18,7 @@
 ## 📋 Tabla de Contenidos
 
 - [¿Qué es esta herramienta?](#-qué-es-esta-herramienta)
-- [Alcance Actual de la Aplicación](#alcance-actual-de-la-aplicación)
+- [Alcance Actual de la Aplicación](#-alcance-actual-de-la-aplicación)
 - [¿Por qué usarla?](#-por-qué-usarla)
 - [Descargar e Instalar](#-descargar-e-instalar)
 - [Primer Uso](#-primer-uso)
