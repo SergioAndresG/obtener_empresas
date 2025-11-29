@@ -53,7 +53,7 @@ El programa navega automáticamente por la plataforma APE, selecciona municipios
 
 ---
 
-a
+
 
 ### ¿Por qué solo un centro?
 
