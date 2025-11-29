@@ -53,7 +53,37 @@ El programa navega automáticamente por la plataforma APE, selecciona municipios
 
 ---
 
+## 🗺️ Alcance Actual de la Aplicación
 
+### Versión 1.0 - Centro de Biotecnología Agropecuaria (CBA)
+
+Esta primera versión está diseñada y configurada exclusivamente para:
+
+<table>
+<tr>
+<td align="center" width="33%">
+
+### 🏛️ Centro SENA
+**Centro de Biotecnología Agropecuaria**  
+Mosquera, Cundinamarca
+
+</td>
+<td align="center" width="33%">
+
+### 📍 Cobertura
+**Municipios de Cundinamarca**  
+Asignados al CBA - APE
+
+</td>
+<td align="center" width="33%">
+
+### 👥 Usuarios
+**Funcionarios del CBA**  
+Con acceso a APE
+
+</td>
+</tr>
+</table>
 
 ### ¿Por qué solo un centro?
 
@@ -83,18 +113,18 @@ La próxima versión incluirá:
 
 ```
 ╔════════════════════════════════════════════════════╗
-║  🏛️ Selección de Centro SENA                       ║
+║  🏛️ Selección de Centro SENA                      ║
 ╠════════════════════════════════════════════════════╣
 ║                                                    ║
 ║  Selecciona tu centro:                             ║
-║  ┌───────────────────────────────────────────┐     ║
-║  │ ○ Centro de Biotecnología Agropecuaria    │     ║
-║  │ ○ Centro de Servicios Financieros         │     ║
-║  │ ○ Centro de Centro de Gestión Admistrativa│     ║
-║  │ ○ [Más centros...]                        │     ║
-║  └───────────────────────────────────────────┘     ║
+║  ┌──────────────────────────────────────────┐    ║
+║  │ ○ Centro de Biotecnología Agropecuaria   │    ║
+║  │ ○ Centro de Servicios Financieros        │    ║
+║  │ ○ Centro de Electricidad y Automatización│    ║
+║  │ ○ [Más centros...]                       │    ║
+║  └──────────────────────────────────────────┘    ║
 ║                                                    ║
-║  📍 Municipios disponibles: 15                     ║
+║  📍 Municipios disponibles: 15                    ║
 ╚════════════════════════════════════════════════════╝
 ```
 
@@ -965,6 +995,10 @@ Información:
 | 📅 **Reportes generados** | 80+ archivos |
 
 ---
+
+<p align="center">
+  <strong>Desarrollado con ❤️ para optimizar procesos administrativos del SENA</strong>
+</p>
 
 <p align="center">
   <sub>Versión 1.0 - Centro de Biotecnología Agropecuaria (CBA) - Mosquera, Cundinamarca</sub>
