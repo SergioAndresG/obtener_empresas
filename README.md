@@ -27,7 +27,7 @@
 - [Preguntas Frecuentes](#-preguntas-frecuentes)
 - [Solución de Problemas](#-solución-de-problemas)
 - [Arquitectura Técnica](#-arquitectura-técnica)
-- [Para Desarrolladores](#-para-desarrolladores)
+- [Para Desarrolladores](#para-desarrolladores)
 - [Roadmap y Versiones Futuras](#-roadmap-y-versiones-futuras)
 
 ---
