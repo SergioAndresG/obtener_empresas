@@ -854,7 +854,7 @@ La aplicación sigue una arquitectura modular de **separación de responsabilida
 
 ---
 
-##  Para Desarrolladores 👨‍💻
+##  Para Desarrolladores
 
 ### Configuración del Entorno de Desarrollo
 
@@ -990,15 +990,11 @@ Información:
 |---------|-------|
 | ⏱️ **Tiempo ahorrado** | ~90% de reducción |
 | 📊 **Empresas procesadas** | +1,000 empresas |
-| 🗺️ **Municipios cubiertos** | 15 municipios |
+| 🗺️ **Municipios cubiertos** | 17 municipios |
 | 👥 **Usuarios activos** | 5 funcionarios |
 | 📅 **Reportes generados** | 80+ archivos |
 
 ---
-
-<p align="center">
-  <strong>Desarrollado con ❤️ para optimizar procesos administrativos del SENA</strong>
-</p>
 
 <p align="center">
   <sub>Versión 1.0 - Centro de Biotecnología Agropecuaria (CBA) - Mosquera, Cundinamarca</sub>
