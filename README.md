@@ -18,7 +18,7 @@
 ## 📋 Tabla de Contenidos
 
 - [¿Qué es esta herramienta?](#-qué-es-esta-herramienta)
-- [Alcance Actual de la Aplicación](#-alcance-actual-de-la-aplicación)
+- [Alcance Actual de la Aplicación](#alcance-actual-de-la-aplicación)
 - [¿Por qué usarla?](#-por-qué-usarla)
 - [Descargar e Instalar](#-descargar-e-instalar)
 - [Primer Uso](#-primer-uso)
@@ -53,7 +53,7 @@ El programa navega automáticamente por la plataforma APE, selecciona municipios
 
 ---
 
-## 🗺️ Alcance Actual de la Aplicación
+## Alcance Actual de la Aplicación
 
 ### Versión 1.0 - Centro de Biotecnología Agropecuaria (CBA)
 
