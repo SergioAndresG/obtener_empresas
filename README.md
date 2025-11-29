@@ -8,13 +8,17 @@
   <img src="https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/Selenium-4.x-43B02A?logo=selenium&logoColor=white" alt="Selenium" />
   <img src="https://img.shields.io/badge/Pandas-Data-150458?logo=pandas&logoColor=white" alt="Pandas" />
+  <img src="https://img.shields.io/badge/Version-1.0_CBA-orange" alt="Versión" />
 </p>
+
+> ⚠️ **Versión Actual:** Configurada para el **Centro de Biotecnología Agropecuaria (CBA) - Mosquera, Cundinamarca**
 
 ---
 
 ## 📋 Tabla de Contenidos
 
 - [¿Qué es esta herramienta?](#-qué-es-esta-herramienta)
+- [Alcance Actual de la Aplicación](#alcance-actual-de-la-aplicación)
 - [¿Por qué usarla?](#-por-qué-usarla)
 - [Descargar e Instalar](#-descargar-e-instalar)
 - [Primer Uso](#-primer-uso)
@@ -24,6 +28,7 @@
 - [Solución de Problemas](#-solución-de-problemas)
 - [Arquitectura Técnica](#-arquitectura-técnica)
 - [Para Desarrolladores](#-para-desarrolladores)
+- [Roadmap y Versiones Futuras](#-roadmap-y-versiones-futuras)
 
 ---
 
@@ -45,6 +50,91 @@ El programa navega automáticamente por la plataforma APE, selecciona municipios
 │  6️⃣  Guarda reportes en carpetas Año/Mes           │
 └─────────────────────────────────────────────────────┘
 ```
+
+---
+
+a
+
+### ¿Por qué solo un centro?
+
+La aplicación necesita conocer **qué municipios están asignados a cada centro SENA** para mostrarlos correctamente. Actualmente:
+
+✅ **Tenemos mapeados:** Municipios del Centro de Biotecnología Agropecuaria (CBA)  
+❌ **Pendiente de mapeo:** Municipios de otros centros SENA de Colombia
+
+### ¿Eres de otro centro SENA?
+
+Si trabajas en un **centro diferente al CBA** y necesitas esta herramienta:
+
+1. 📧 **Contáctanos**: sergiogarcia3421@gmail.com
+2. 📋 **Proporciona**: Lista de municipios que cubre tu centro
+3. 🎁 **Recibe**: Versión personalizada para tu centro
+4. 🚀 **Contribuye**: Ayúdanos a expandir la cobertura nacional
+
+---
+
+## 🔮 Roadmap y Versiones Futuras
+
+### Versión 1.5 (Próximamente)
+
+**Selector de Centro SENA**
+
+La próxima versión incluirá:
+
+```
+╔════════════════════════════════════════════════════╗
+║  🏛️ Selección de Centro SENA                       ║
+╠════════════════════════════════════════════════════╣
+║                                                    ║
+║  Selecciona tu centro:                             ║
+║  ┌───────────────────────────────────────────┐     ║
+║  │ ○ Centro de Biotecnología Agropecuaria    │     ║
+║  │ ○ Centro de Servicios Financieros         │     ║
+║  │ ○ Centro de Centro de Gestión Admistrativa│     ║
+║  │ ○ [Más centros...]                        │     ║
+║  └───────────────────────────────────────────┘     ║
+║                                                    ║
+║  📍 Municipios disponibles: 15                     ║
+╚════════════════════════════════════════════════════╝
+```
+
+**Funcionalidades planeadas:**
+- ✨ Selector de centro SENA en la interfaz
+- 📍 Carga dinámica de municipios según el centro seleccionado
+- 🗂️ Base de datos de centros y municipios de toda Colombia
+- 💾 Recordar el centro seleccionado para futuras ejecuciones
+- 🔄 Actualización automática de lista de centros
+
+### Versión 2.0 (Visión a futuro)
+
+**Expansión Nacional**
+
+- 🇨🇴 Todos los centros SENA de Colombia
+- 🌐 API para sincronización automática de municipios
+- 📊 Reportes consolidados multi-centro
+- 👥 Sistema de permisos por centro
+- 📱 Versión web multiplataforma
+
+### ¿Cómo puedes ayudar?
+
+Si quieres que tu centro esté incluido en la versión 1.5:
+
+**Información requerida:**
+```
+📋 Formato de información del centro:
+
+Nombre del Centro: _______________________________
+Ciudad/Municipio: _________________________________
+Regional: _________________________________________
+
+Municipios de Cobertura APE:
+1. _____________________________________________
+2. _____________________________________________
+3. _____________________________________________
+[... continuar lista completa]
+```
+
+Envía esta información a: **sergiogarcia3421@gmail.com**
 
 ---
 
@@ -107,18 +197,23 @@ Procesa decenas de municipios en una sola ejecución
 
 #### 1️⃣ Descargar la Aplicación
 
-**Opción A: Descarga directa desde Releases**
-1. Ve a la sección [**📦 Releases**](https://github.com/TU-USUARIO/extractor-empresas-ape/releases/latest)
-2. Descarga el archivo: `Extractor_Empresas_APE_vX.X.X.zip`
+**Descarga directa desde Releases:**
+1. Ve a la sección [**📦 Releases**](https://github.com/SergioAndresG/obtener_empresas/releases/latest)
+2. Descarga el archivo: `Extractor_Empresas_APE_CBA_vX.X.X.zip`
 3. Extrae el contenido en una carpeta de tu preferencia
+
+> 📌 **Nota:** El nombre del archivo incluye "CBA" indicando que es la versión para el Centro de Biotecnología Agropecuaria.
 
 #### 2️⃣ Contenido del Paquete
 
 Después de extraer el `.zip`, encontrarás:
 
 ```
-📁 Extractor_Empresas_APE/
+📁 Extractor_Empresas_APE_CBA/
 ├── 📄 ExtractorEmpresasAPE.exe        ← Archivo principal (ejecutar este)
+├── 📁 Reportes/                       ← Los reportes se guardan aquí
+├── 📁 Logs/                           ← Registros de actividad
+└── 📄 README.md                       ← Este archivo
 ```
 
 #### 3️⃣ Ubicación Recomendada
@@ -128,7 +223,7 @@ Coloca la aplicación en una ubicación accesible:
 ```
 📁 C:\Usuarios\TuNombre\Documentos\
    └── 📁 Herramientas_SENA\
-       └── 📁 Extractor_Empresas_APE\
+       └── 📁 Extractor_Empresas_APE_CBA\
            ├── 📄 ExtractorEmpresasAPE.exe
            ├── 📁 Reportes\
            └── 📁 Logs\
@@ -166,7 +261,7 @@ La aplicación solicitará tus credenciales de acceso a la plataforma APE:
 <td width="50%">
 
 **📝 Información requerida:**
-- Usuario (Numeró de documento registrado dentro de la APE)
+- Usuario (Número de documento registrado en APE)
 - Contraseña de acceso
 
 La aplicación abrirá un diálogo para ingresar estas credenciales.
@@ -176,21 +271,29 @@ La aplicación abrirá un diálogo para ingresar estas credenciales.
 
 **🔒 Seguridad:**
 - Las credenciales se guardan **localmente** en tu equipo
+- Ubicación segura en archivos del sistema
 - **Nunca** se envían a servidores externos
+- Solo se usan para iniciar sesión en APE
+
 </td>
 </tr>
 </table>
 
 #### 2️⃣ Selección de Municipios
 
-La aplicación incluye una lista precargada de municipios de Cundinamarca:
+> 📍 **Municipios disponibles:** Solo los asignados al Centro de Biotecnología Agropecuaria (CBA) - Mosquera
 
-**Municipios disponibles incluyen:**
-- Los municipios de Cundinamarca que Cubre el APE del Centro de Biotecnologia Agropecuario, Mosquera
+La aplicación muestra únicamente los municipios de Cundinamarca que están bajo la cobertura del APE del CBA.
 
-**Puedes:**
-- ✅ Seleccionar uno o múltiples municipios
-- ✅ Seleccionar todos con un clic
+**Características:**
+- ✅ Lista precargada y actualizada
+- ✅ Selección múltiple
+- ✅ Botón "Seleccionar todos"
+- ✅ Contador de municipios seleccionados
+
+**Si necesitas municipios de otro centro:**  
+Esta versión no incluye municipios fuera de la cobertura del CBA. Consulta la sección [Roadmap y Versiones Futuras](#-roadmap-y-versiones-futuras) para más información.
+
 ---
 
 ## 📖 Cómo Usar la Aplicación
@@ -199,7 +302,9 @@ La aplicación incluye una lista precargada de municipios de Cundinamarca:
 
 Al abrir la aplicación, verás una interfaz gráfica como esta:
 
-<img src="https://i.ibb.co/Gv5M7DMQ/image.png" alt="Mi imagen" width="400">
+<p align="center">
+  <img src="https://i.ibb.co/Gv5M7DMQ/image.png" alt="Interfaz principal" width="500">
+</p>
 
 ### Paso a Paso
 
@@ -207,21 +312,25 @@ Al abrir la aplicación, verás una interfaz gráfica como esta:
 
 1. **Marca los municipios que deseas consultar:**
    - Haz clic en las casillas de verificación
-   - O usa el botón **"Todos"**
+   - O usa el botón **"Todos"** para seleccionar todos
 
 2. **Verificar selección:**
    - El contador mostrará: `"X municipios seleccionados"`
 
+> 💡 **Tip:** Si es tu primera vez, te recomendamos empezar con 2-3 municipios para familiarizarte con el proceso.
+
 #### Paso 2: Verificar Credenciales
 
 1. **Primera vez:**
-   - Saldra una ventana que pedira las credenciales
-   - Ingresa usuario y contraseña
+   - Aparecerá una ventana emergente
+   - Ingresa tu número de documento (usuario)
+   - Ingresa tu contraseña de APE
    - Clic en **"Guardar"**
 
 2. **Ya configuradas:**
-   - Veras un recuadro en donde podras verificar las credenciales
-   - No necesitas hacer nada más
+   - Verás un recuadro con tus credenciales
+   - Puedes editarlas si es necesario
+   - No necesitas hacer nada más si son correctas
 
 #### Paso 3: Iniciar Extracción
 
@@ -231,14 +340,33 @@ Al abrir la aplicación, verás una interfaz gráfica como esta:
    - Se inicia sesión en APE automáticamente
    - Se navega a cada municipio seleccionado
    - Se extraen datos de todas las empresas
+   - Se genera un archivo Excel por municipio
 
-3. **⚠️ NO INTERACTÚES CON EL NAVEGADOR**
+3. **⚠️ IMPORTANTE - NO INTERACTÚES CON EL NAVEGADOR:**
    - Deja que la aplicación trabaje sola
    - Puedes minimizar la ventana del navegador
-   - No cierres el navegador manualmente
+   - **No cierres el navegador manualmente**
+   - **No hagas clic en la ventana del navegador**
 
+#### Paso 4: Monitorear el Progreso
 
-#### Paso 4: Revisar Resultados
+Durante la extracción verás en la interfaz:
+
+```
+┌────────────────────────────────────────────────────┐
+│  🔄 Proceso en Ejecución                           │
+├────────────────────────────────────────────────────┤
+│                                                    │
+│  📍 Municipio actual: Mosquera (2/5)              │
+│  🏢 Empresas extraídas: 47                         │
+│                                                    │
+│  📊 Estado: Extrayendo datos...                    │
+│  ⏱️ Tiempo transcurrido: 1:23                      │
+│                                                    │
+└────────────────────────────────────────────────────┘
+```
+
+#### Paso 5: Revisar Resultados
 
 Al finalizar, la aplicación mostrará:
 
@@ -250,6 +378,14 @@ Al finalizar, la aplicación mostrará:
 ║  📊 Resumen:                                       ║
 ║  ────────────────────────────────────────          ║
 ║  Municipios procesados:        5                   ║
+║  Empresas totales extraídas:   247                 ║
+║  Archivos generados:           5                   ║
+║  Tiempo total:                 6 min 15 seg        ║
+║                                                    ║
+║  📁 Ubicación de reportes:                         ║
+║  Reportes/REPORTE_EMPRESAS - 2024-11/             ║
+║                                                    ║
+║  [📂 Abrir Carpeta] [✓ Cerrar]                    ║
 ╚════════════════════════════════════════════════════╝
 ```
 
@@ -263,15 +399,18 @@ Los reportes se organizan automáticamente por **año** y **mes**:
 
 ```
 📁 Reportes/
+├── 📁 REPORTE_EMPRESAS - 2024-10/
+│   ├── 📄 Mosquera_2024-10-15.xlsx
+│   ├── 📄 Funza_2024-10-15.xlsx
+│   └── 📄 Madrid_2024-10-15.xlsx
+│
 ├── 📁 REPORTE_EMPRESAS - 2024-11/
-│   │   ├── 📄 Bogota_DC_2024-10-15.xlsx
-│   │   ├── 📄 Soacha_2024-10-15.xlsx
-│   │   └── 📄 Zipaquira_2024-10-15.xlsx
-│   │
-├── 📁 REPORTE_EMPRESAS - 2025-01/
-│   │   ├── 📄 Bogota_DC_2024-10-15.xlsx
-│   │   ├── 📄 Soacha_2024-10-15.xlsx
-│   │   └── 📄 Zipaquira_2024-10-15.xlsx
+│   ├── 📄 Mosquera_2024-11-26.xlsx
+│   ├── 📄 Facatativa_2024-11-26.xlsx
+│   └── 📄 Chia_2024-11-26.xlsx
+│
+└── 📁 REPORTE_EMPRESAS - 2025-01/
+    └── 📄 Mosquera_2025-01-10.xlsx
 ```
 
 ### Contenido de los Archivos Excel
@@ -280,27 +419,53 @@ Cada archivo Excel contiene las siguientes columnas:
 
 | Columna | Descripción | Ejemplo |
 |---------|-------------|---------|
-| **Tipo ID** | Tipo de Indentificación | NIT |
+| **Tipo ID** | Tipo de identificación | NIT |
 | **Identificación** | Número de identificación tributaria | 900123456-7 |
-| **Actividad Economica** | Actividades a las que se dedica la empresa | Otras actividades ncp |
-| **Fecha de Inscripción** | Dia de registro dentro de la pataforma | 2009 - 04 - 27 |
-| **Estado** | Estado actual (Activa/Temporalmete Inactiva/Extinta | Activa |
+| **Actividad Económica** | Sector al que se dedica | Comercio al por menor |
+| **Fecha de Inscripción** | Día de registro en APE | 2009-04-27 |
+| **Estado** | Estado actual de la empresa | Activa / Temporalmente Inactiva / Extinta |
 
 ### Formato del Archivo
 
 - **Nombre:** `{Municipio}_{YYYY-MM-DD}.xlsx`
 - **Formato:** Excel (.xlsx) compatible con Office 2010+
 - **Hojas:** Una hoja por archivo con el nombre del municipio
+- **Encabezados:** Primera fila con nombres de columnas en negrita
 
 ### Características Adicionales
 
 ✅ **Sin duplicados**: La aplicación elimina empresas repetidas  
-✅ **Formato de fecha**: DD/MM/YYYY para fácil lectura  
-✅ **Autoajuste de columnas**: Anchos optimizados para mejor visualización
+✅ **Validación de datos**: Verifica campos críticos antes de exportar  
+✅ **Formato de fecha**: YYYY-MM-DD para ordenamiento automático  
+✅ **Autoajuste de columnas**: Anchos optimizados para lectura
 
 ---
 
 ## ❓ Preguntas Frecuentes
+
+<details>
+<summary><strong>¿Esta versión funciona para mi centro SENA?</strong></summary>
+
+**Solo si eres del Centro de Biotecnología Agropecuaria (CBA) de Mosquera, Cundinamarca.**
+
+Si eres de otro centro:
+1. Consulta la sección [Roadmap y Versiones Futuras](#-roadmap-y-versiones-futuras)
+2. Contáctanos para solicitar una versión para tu centro
+3. Proporciona la lista de municipios que cubre tu centro
+
+Estamos trabajando en una versión multi-centro que incluirá selector de centro SENA.
+</details>
+
+<details>
+<summary><strong>¿Puedo agregar municipios que no están en la lista?</strong></summary>
+
+**No en esta versión.**
+
+La lista de municipios está predefinida y corresponde a los asignados al CBA. Si un municipio que necesitas no aparece:
+- Verifica que esté dentro de la cobertura del CBA
+- Si es de otro centro, espera la versión multi-centro
+- Contáctanos para reportar municipios faltantes del CBA
+</details>
 
 <details>
 <summary><strong>¿Necesito instalar Python u otros programas?</strong></summary>
@@ -309,7 +474,7 @@ Cada archivo Excel contiene las siguientes columnas:
 - Python embebido
 - Selenium WebDriver
 - Pandas para procesamiento de datos
-- PyQt para la interfaz gráfica
+- CustomTkinter para la interfaz gráfica
 - WebDriver Manager para gestión de drivers
 
 Solo necesitas tener **Google Chrome** instalado.
@@ -319,29 +484,29 @@ Solo necesitas tener **Google Chrome** instalado.
 <summary><strong>¿Cuántos municipios puedo procesar a la vez?</strong></summary>
 
 **No hay límite técnico**, pero recomendamos:
-- ✅ **1-15 municipios**: Proceso rápido (5-15 minutos)
-- ⚠️ **15-50 municipios**: Proceso medio (15-45 minutos)
-- ❌ **+60 municipios**: Dividir en diferentes ejecuciones para facilitar seguimiento
+- ✅ **1-10 municipios**: Proceso rápido (3-10 minutos)
+- ⚠️ **10-20 municipios**: Proceso medio (10-25 minutos)
+- ❌ **+20 municipios**: Dividir en lotes para facilitar seguimiento
 
-La aplicación puede procesar cientos de municipios en una ejecución, pero lotes más pequeños facilitan la detección de errores.
+El CBA tiene aproximadamente 15-20 municipios asignados.
 </details>
 
 <details>
 <summary><strong>¿Qué pasa si se interrumpe el proceso?</strong></summary>
 
 Si el proceso se interrumpe:
-1. **Los reportes ya generados se conservan** en sus carpetas correspondientes
-2. Puedes **reiniciar el proceso** seleccionando solo los municipios faltantes
-3. La aplicación **no sobreescribe archivos existentes** del mismo día
-4. Revisa el archivo de logs para ver el último municipio procesado
+1. **Los reportes ya generados se conservan** en sus carpetas
+2. Puedes **reiniciar** seleccionando solo los municipios faltantes
+3. La aplicación **no sobreescribe archivos** del mismo día
+4. Revisa los logs para ver el último municipio procesado
 </details>
 
 <details>
 <summary><strong>¿Los datos extraídos son exactos?</strong></summary>
 
-**Sí.** La aplicación extrae los datos exactamente como aparecen en la plataforma APE. Sin embargo:
+**Sí.** La aplicación extrae datos exactamente como aparecen en APE. Sin embargo:
 - La calidad depende de los datos originales en APE
-- Algunas empresas pueden tener campos vacíos si no completaron su perfil
+- Algunas empresas pueden tener campos vacíos
 - La aplicación registra advertencias en los logs cuando encuentra datos incompletos
 </details>
 
@@ -352,7 +517,7 @@ Si el proceso se interrumpe:
 - La aplicación consume recursos del navegador
 - Puedes minimizar la ventana y continuar trabajando
 - El proceso no afecta otras aplicaciones
-- Recomendamos ejecutarla durante tiempos de menor carga de trabajo
+- Recomendamos ejecutarla en tiempos de menor carga
 </details>
 
 <details>
@@ -360,10 +525,18 @@ Si el proceso se interrumpe:
 
 La aplicación:
 1. Detecta que no hay empresas
-2. Genera un archivo Excel vacío (solo con encabezados)
+2. Genera un archivo Excel vacío (solo encabezados)
 3. Registra en el log: `"0 empresas encontradas en [Municipio]"`
 
-Esto es normal para municipios pequeños o sin empresas registradas en APE.
+Esto es normal para municipios pequeños o sin empresas registradas.
+</details>
+
+<details>
+<summary><strong>¿Cuándo estará disponible la versión multi-centro?</strong></summary>
+
+La versión 1.5 con selector de centros está planeada para el **Q1 2025**.
+
+Para acelerar el desarrollo, necesitamos que otros centros SENA nos proporcionen su lista de municipios. ¡Contáctanos si quieres contribuir!
 </details>
 
 ---
@@ -405,18 +578,18 @@ Esto es normal para municipios pequeños o sin empresas registradas en APE.
 **Solución:**
 
 1. **Verifica tus credenciales manualmente:**
-   - Abre Chrome manualmente
+   - Abre Chrome
    - Ve a la plataforma APE
    - Intenta iniciar sesión con tus datos
 
 2. **Actualiza las credenciales en la app:**
-   - Abre la aplicación
-   - **"⚙️ Configuración"** → **"Credenciales"**
-   - Ingresa nuevamente usuario y contraseña
-   - **"Guardar"**
+   - Edita el campo de credenciales
+   - Ingresa nuevamente usuario (número de documento)
+   - Ingresa contraseña
+   - Guarda cambios
 
 3. **Verifica que tu cuenta esté activa:**
-   - Contacta soporte de APE si no puedes acceder manualmente
+   - Contacta soporte de APE si no puedes acceder
 
 ---
 
@@ -431,9 +604,11 @@ Esto es normal para municipios pequeños o sin empresas registradas en APE.
 1. **Actualiza Google Chrome:**
    - Menú (⋮) → Ayuda → Información de Google Chrome
    - Espera actualización automática
+   - Reinicia Chrome
 
 2. **Descarga la última versión del ejecutable:**
    - Las nuevas versiones incluyen ChromeDriver actualizado
+   - Verifica en Releases la última versión
 
 3. **Ejecuta como administrador (una vez):**
    - Clic derecho en el `.exe`
@@ -451,7 +626,7 @@ Esto es normal para municipios pequeños o sin empresas registradas en APE.
 **Solución:**
 
 1. **Verifica permisos de escritura:**
-   - Clic derecho en carpeta `Reportes/`
+   - Clic derecho en carpeta de la aplicación
    - **Propiedades** → **Seguridad**
    - Tu usuario debe tener permisos de "Modificar"
 
@@ -459,39 +634,61 @@ Esto es normal para municipios pequeños o sin empresas registradas en APE.
    ```
    Logs/app.log
    ```
-   - Busca mensajes de error relacionados con escritura de archivos
+   - Busca mensajes de error
 
-3. **Ejecuta la app desde otra ubicación:**
+3. **Ejecuta desde otra ubicación:**
    - Mueve toda la carpeta a `Documentos/`
-   - Evita ubicaciones protegidas como `Archivos de Programa/`
+   - Evita `Archivos de Programa/`
 
 ---
 
 ### Problema 5: Extracción muy lenta
 
 **Síntomas:**
-- El proceso tarda mucho más de lo esperado
-- El navegador se congela frecuentemente
+- El proceso tarda más de lo esperado
+- El navegador se congela
 
 **Solución:**
 
-1. **Verifica tu conexión a internet:**
+1. **Verifica conexión a internet:**
    - Velocidad recomendada: mínimo 5 Mbps
+   - Ping estable a APE
 
-2. **Cierra aplicaciones que consuman recursos:**
+2. **Cierra aplicaciones pesadas:**
    - Otros navegadores
-   - Programas de edición pesados
+   - Programas de edición
 
-3. **Procesa menos municipios por lote:**
-   - En lugar de 30, procesa de 10 en 10
+3. **Procesa menos municipios:**
+   - En lugar de 15, procesa de 5 en 5
 
 4. **Limpia caché de Chrome:**
-   - Abre Chrome
    - Ctrl + Shift + Supr
    - Elimina caché e historial
 
 ---
 
+### Problema 6: "Mi municipio no aparece en la lista"
+
+**Síntomas:**
+- El municipio que necesitas no está disponible
+- Lista de municipios incompleta
+
+**Posibles causas y soluciones:**
+
+**Causa 1: El municipio no pertenece al CBA**
+- Verifica que el municipio esté en la cobertura del CBA - Mosquera
+- Si es de otro centro, espera la versión multi-centro
+
+**Causa 2: Error en la configuración**
+- Reporta el municipio faltante a: sergiogarcia3421@gmail.com
+- Proporciona el nombre exacto del municipio
+- Confirma que es de Cundinamarca
+
+**Causa 3: Municipio agregado recientemente**
+- Descarga la última versión del ejecutable
+- Verifica el changelog de la versión
+
+---
 
 ## 🏗️ Arquitectura Técnica
 
@@ -531,7 +728,7 @@ La aplicación sigue una arquitectura modular de **separación de responsabilida
 │           Configuration Layer                   │
 │  - Settings (paths, constants)                  │
 │  - Logging Config                               │
-│  - Municipalities List                          │
+│  - Municipalities List (CBA only)               │
 │  - URLs                                         │
 └─────────────────────────────────────────────────┘
 ```
@@ -541,89 +738,76 @@ La aplicación sigue una arquitectura modular de **separación de responsabilida
 ```
 📁 extractor-empresas-ape/
 │
-├── 📄 main.py                          # Punto de entrada de la aplicación
+├── 📄 main.py                          # Punto de entrada
 │
-├── 📁 config/                          # Configuración estática
+├── 📁 config/                          # Configuración
 │   ├── __init__.py
-│   ├── logging_config.py               # Config del sistema de logs
-│   ├── municipalities.py               # Lista de municipios (tupla inmutable)
-│   └── settings.py                     # Constantes globales (rutas, timeouts)
+│   ├── logging_config.py               # Sistema de logs
+│   ├── municipalities.py               # Lista CBA (editable)
+│   └── settings.py                     # Constantes globales
 │
 ├── 📁 core/                            # Componentes fundamentales
 │   ├── __init__.py
-│   ├── base_extractor.py               # Clase abstracta para extractores
-│   └── driver_manager.py               # Gestión del ciclo de vida del WebDriver
+│   ├── base_extractor.py               # Clase abstracta
+│   └── driver_manager.py               # Gestión de WebDriver
 │
 ├── 📁 gui/                             # Interfaz de usuario
 │   ├── __init__.py
-│   ├── main_window.py                  # Ventana principal (PyQt)
-│   └── dialogs/                        # Diálogos auxiliares
+│   ├── main_window.py                  # Ventana principal
+│   └── dialogs/
 │       ├── __init__.py
-│       ├── conflict_dialog.py          # Diálogo de conflictos de archivos
-│       └── credentials_dialog.py       # Diálogo para ingresar credenciales
+│       ├── conflict_dialog.py
+│       └── credentials_dialog.py
 │
 ├── 📁 modules/                         # Módulos de orquestación
 │   ├── __init__.py
-│   ├── authentication.py               # Lógica de login en APE
-│   ├── navigation.py                   # Control de navegación entre páginas
-│   ├── data_extraction.py              # Extracción de datos de tablas
-│   └── export_handler.py               # Exportación a Excel (pandas)
+│   ├── authentication.py               # Login en APE
+│   ├── navigation.py                   # Navegación
+│   ├── data_extraction.py              # Extracción de datos
+│   └── export_handler.py               # Exportación a Excel
 │
-├── 📁 urls/                            # URLs externas centralizadas
+├── 📁 urls/                            # URLs centralizadas
 │   ├── __init__.py
-│   └── urls.py                         # Diccionario de URLs de APE
+│   └── urls.py
 │
-├── 📁 utils/                           # Utilidades reutilizables
+├── 📁 utils/                           # Utilidades
 │   ├── __init__.py
-│   ├── credentials.py                  # Persistencia de credenciales (JSON)
-│   ├── helpers.py                      # Funciones de ayuda (wait_for_element)
-│   ├── selectors.py                    # Localizadores CSS/XPath
-│   └── validator_file.py               # Validación de archivos y rutas
+│   ├── credentials.py
+│   ├── helpers.py
+│   ├── selectors.py
+│   └── validator_file.py
 │
-├── 📁 Reportes/                        # Reportes generados (no en repo)
-│   └── (estructura YYYY/MM/ creada automáticamente)
+├── 📁 Reportes/                        # Reportes generados
+├── 📁 Logs/                            # Logs de aplicación
 │
-├── 📁 Logs/                            # Logs de la aplicación (no en repo)
-│   └── app.log
-│
-├── 📄 requirements.txt                 # Dependencias de Python
-├── 📄 build_spec.spec                  # Configuración de PyInstaller
-└── 📄 README.md                        # Este archivo
+├── 📄 requirements.txt
+├── 📄 build_spec.spec
+└── 📄 README.md
 ```
-
 
 ### Flujo de Ejecución
 
 ```
 1. main.py
    ↓
-   Inicializa QApplication (GUI)
+2. Inicializa GUI (CustomTkinter)
    ↓
-2. MainWindow se muestra
+3. Usuario selecciona municipios (lista CBA)
    ↓
-   Usuario selecciona municipios
+4. Usuario inicia extracción
    ↓
-   Usuario hace clic en "Iniciar Extracción"
+5. DriverManager.initialize()
    ↓
-3. DriverManager.initialize()
+6. Authentication.login()
    ↓
-   Abre Chrome con Selenium
+7. Para cada municipio:
+   ├─ Navigation.go_to_municipality()
+   ├─ DataExtractor.extract_companies()
+   └─ ExportHandler.export_to_excel()
    ↓
-4. Authentication.login()
+8. DriverManager.quit()
    ↓
-   Inicia sesión en APE
-   ↓
-5. Para cada municipio seleccionado:
-   ↓
-   Navigation.go_to_municipality()
-   ↓
-   DataExtractor.extract_companies()
-   ↓
-   ExportHandler.export_to_excel()
-   ↓
-6. DriverManager.quit()
-   ↓
-   Muestra resumen final
+9. Muestra resumen final
 ```
 
 ### Tecnologías Utilizadas
@@ -632,10 +816,10 @@ La aplicación sigue una arquitectura modular de **separación de responsabilida
 |------------|-----------|---------|
 | **Python** | Lenguaje base | 3.10+ |
 | **Selenium** | Automatización web | 4.x |
-| **CustomTkinter** | Interfaz gráfica | 5.15+ / 6.x |
+| **CustomTkinter** | Interfaz gráfica moderna | 5.2+ |
 | **Pandas** | Procesamiento de datos | 2.x |
-| **WebDriver Manager** | Gestión automática de drivers | 3.x |
-| **openpyxl** | Escritura de archivos Excel | 3.x |
+| **WebDriver Manager** | Gestión de drivers | 3.x |
+| **openpyxl** | Escritura Excel | 3.x |
 | **PyInstaller** | Compilación a .exe | 5.x |
 
 ---
@@ -647,8 +831,8 @@ La aplicación sigue una arquitectura modular de **separación de responsabilida
 #### 1. Clonar el Repositorio
 
 ```bash
-git clone https://github.com/TU-USUARIO/extractor-empresas-ape.git
-cd extractor-empresas-ape
+git clone https://github.com/SergioAndresG/obtener_empresas.git
+cd obtener_empresas
 ```
 
 #### 2. Crear Entorno Virtual
@@ -675,87 +859,34 @@ pip install -r requirements.txt
 python main.py
 ```
 
-### Dependencias (requirements.txt)
+### Agregar Municipios
 
-```txt
-selenium==4.15.2
-webdriver-manager==4.0.1
-PyQt6==6.6.0
-pandas==2.1.3
-openpyxl==3.1.2
-python-dotenv==1.0.0
+Para agregar municipios del CBA, edita:
+
+```python
+# config/municipalities.py
+
+LIST_MUNICIPALITIES = (
+    "Mosquera",
+    "Funza",
+    "Madrid",
+    "Facatativá",
+    # Agrega aquí nuevos municipios del CBA
+    "Nuevo Municipio",
+)
 ```
 
 ### Compilar el Ejecutable
-
-Para generar el archivo `.exe`:
 
 ```bash
 # Instalar PyInstaller
 pip install pyinstaller
 
-# Compilar (usa el archivo .spec personalizado)
+# Compilar
 pyinstaller build_spec.spec
 
 # El ejecutable estará en:
 # dist/ExtractorEmpresasAPE.exe
-```
-
-### Configuración de PyInstaller (build_spec.spec)
-
-```python
-# -*- mode: python ; coding: utf-8 -*-
-
-block_cipher = None
-
-a = Analysis(
-    ['main.py'],
-    pathex=[],
-    binaries=[],
-    datas=[
-        ('config', 'config'),
-        ('urls', 'urls'),
-    ],
-    hiddenimports=[
-        'selenium',
-        'pandas',
-        'openpyxl',
-        'PyQt6',
-    ],
-    hookspath=[],
-    hooksconfig={},
-    runtime_hooks=[],
-    excludes=[],
-    win_no_prefer_redirects=False,
-    win_private_assemblies=False,
-    cipher=block_cipher,
-    noarchive=False,
-)
-
-pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
-
-exe = EXE(
-    pyz,
-    a.scripts,
-    a.binaries,
-    a.zipfiles,
-    a.datas,
-    [],
-    name='ExtractorEmpresasAPE',
-    debug=False,
-    bootloader_ignore_signals=False,
-    strip=False,
-    upx=True,
-    upx_exclude=[],
-    runtime_tmpdir=None,
-    console=False,  # Sin ventana de consola
-    disable_windowed_traceback=False,
-    argv_emulation=False,
-    target_arch=None,
-    codesign_identity=None,
-    entitlements_file=None,
-    icon='Iconos/app_icon.ico',  # Icono de la aplicación
-)
 ```
 
 ### Contribuir al Proyecto
@@ -763,85 +894,81 @@ exe = EXE(
 #### Proceso de Contribución
 
 1. **Fork** el repositorio
-2. Crea una rama para tu feature:
+2. Crea una rama:
    ```bash
    git checkout -b feature/nueva-funcionalidad
    ```
-3. Haz tus cambios siguiendo las convenciones de código
-4. Escribe tests para nuevas funcionalidades
-5. Asegúrate de que todos los tests pasen:
+3. Haz tus cambios
+4. Commit con mensajes descriptivos:
    ```bash
-   pytest tests/
+   git commit -m "Add: municipios faltantes del CBA"
    ```
-6. Commit con mensajes descriptivos:
-   ```bash
-   git commit -m "Add: extracción de datos adicionales de empresas"
-   ```
-7. Push a tu fork:
+5. Push a tu fork:
    ```bash
    git push origin feature/nueva-funcionalidad
    ```
-8. Abre un **Pull Request** detallado
+6. Abre un **Pull Request**
 
 #### Convenciones de Código
 
 **Estilo Python:**
 - Sigue **PEP 8**
-- Usa **type hints** en funciones
+- Usa **type hints**
 - Documenta con **docstrings**
-
-```python
-def extract_companies(driver: WebDriver, municipio: str) -> List[Dict[str, str]]:
-    """
-    Extrae información de empresas del municipio especificado.
-    
-    Args:
-        driver: Instancia del WebDriver de Selenium
-        municipio: Nombre del municipio a consultar
-    
-    Returns:
-        Lista de diccionarios con datos de empresas
-    
-    Raises:
-        NoSuchElementException: Si no se encuentran elementos en la página
-    """
-    # Implementación...
-```
-
-**Nombres de variables:**
-- `snake_case` para funciones y variables
-- `PascalCase` para clases
-- `UPPER_CASE` para constantes
 
 **Estructura de commits:**
 ```
 Add: nueva funcionalidad
 Fix: corrección de bug
-Update: actualización de funcionalidad existente
-Refactor: refactorización de código
+Update: actualización de funcionalidad
+Refactor: refactorización
 Docs: cambios en documentación
 ```
+
+---
 
 ## 📧 Contacto y Soporte
 
 ### ¿Necesitas ayuda?
 
-- 🐛 **Reportar bugs**: [Issues del repositorio](https://github.com/SergioAndresG/obtener_empresas/)
+- 🐛 **Reportar bugs**: [Issues del repositorio](https://github.com/SergioAndresG/obtener_empresas/issues)
 - 💡 **Sugerencias**: [Discussions](https://github.com/SergioAndresG/obtener_empresas/discussions)
 - 📧 **Contacto directo**: sergiogarcia3421@gmail.com
+
+### Para Otros Centros SENA
+
+Si eres de otro centro y quieres esta herramienta:
+
+**Envía un correo con:**
+```
+Asunto: Solicitud Extractor Empresas APE - [Nombre de tu Centro]
+
+Información:
+- Nombre del Centro: _______________________________
+- Ciudad: _________________________________________
+- Regional: _______________________________________
+- Municipios de cobertura APE: (lista completa)
+```
+
 ---
 
 ## 📊 Estadísticas de Uso
 
-Desde su implementación:
+### Centro de Biotecnología Agropecuaria
 
 | Métrica | Valor |
 |---------|-------|
 | ⏱️ **Tiempo ahorrado** | ~90% de reducción |
 | 📊 **Empresas procesadas** | +1,000 empresas |
+| 🗺️ **Municipios cubiertos** | 15 municipios |
 | 👥 **Usuarios activos** | 5 funcionarios |
+| 📅 **Reportes generados** | 80+ archivos |
 
 ---
+
+<p align="center">
+  <sub>Versión 1.0 - Centro de Biotecnología Agropecuaria (CBA) - Mosquera, Cundinamarca</sub>
+</p>
 
 <p align="center">
   <sub>Herramienta de extracción automatizada que convierte horas de trabajo manual en minutos</sub>
